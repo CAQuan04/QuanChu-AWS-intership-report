@@ -29,7 +29,7 @@ export const HomePage = () => {
                         <div className="relative group shrink-0">
                             <div className="absolute inset-0 bg-gradient-to-br from-aws-orange to-yellow-400 rounded-2xl blur opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
                             <img
-                                src="/quanchu-aws-report/images/profile.jpg"
+                                src="/QuanChu-AWS-intership-report/images/profile.jpg"
                                 alt="Quan Chu"
                                 className="relative w-64 h-auto md:w-72 lg:w-80 rounded-2xl shadow-2xl object-cover border-4 border-white transition-transform duration-500 group-hover:scale-[1.02]"
                             />
@@ -43,7 +43,7 @@ export const HomePage = () => {
                             <p className="text-2xl text-aws-orange font-light mb-6">
                                 First Cloud Journey Internship Program
                             </p>
-                            
+
                             <div className="card-static bg-gradient-to-br from-white to-slate-50 border-white/50 shadow-sm p-6 mb-6">
                                 <MarkdownRenderer content={content} />
                             </div>

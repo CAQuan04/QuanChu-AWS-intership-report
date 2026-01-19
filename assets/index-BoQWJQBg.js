@@ -197,7 +197,6 @@ To objectively reflect on my internship period, I would like to evaluate myself 
 * Enhance communication skills in both daily interactions and professional contexts, including handling situations effectively\r
 `,lI=`# Tự đánh giá\r
 \r
-> **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn.\r
 \r
 Trong suốt thời gian thực tập tại **[Tên công ty/tổ chức]** từ **[ngày bắt đầu]** đến **[ngày kết thúc]**, tôi đã có cơ hội học hỏi, rèn luyện và áp dụng kiến thức đã được trang bị tại trường vào môi trường làm việc thực tế.  \r
 Tôi đã tham gia **[mô tả ngắn gọn dự án hoặc công việc chính]**, qua đó cải thiện kỹ năng **[liệt kê kỹ năng: lập trình, phân tích, viết báo cáo, giao tiếp…]**.  \r
@@ -732,7 +731,6 @@ The company provides an internship allowance and offers flexible working hours w
 - Any other comments (free sharing):\r
 `,hI=`# Chia sẻ, đóng góp ý kiến\r
 \r
-> **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn.\r
 \r
 Tại đây bạn có thể tự do đóng góp ý kiến cá nhân về những trải nghiệm khi tham gia chương trình First Cloud Journey, giúp team FCJ cải thiện những vấn đề còn thiếu sót dựa trên các hạng mục sau:\r
 \r
@@ -907,9 +905,7 @@ Scalable to 10-15 stations.\r
 1-year data foundation for AI research.  \r
 Reusable for future projects.\r
 `,mI=`# IoT Weather Platform for Lab Research  \r
-## Giải pháp AWS Serverless hợp nhất cho giám sát thời tiết thời gian thực  \r
-\r
-> **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn.\r
+## Giải pháp AWS Serverless hợp nhất cho đo sát thời tiết thời gian thực  \r
 \r
 Tại phần này, bạn cần tóm tắt các nội dung trong workshop mà bạn **dự tính** sẽ làm.\r
 \r
@@ -1016,9 +1012,7 @@ Each week documents specific objectives, tasks completed, resources utilized, an
 \r
 **Week 1** — [AWS Ecosystem Orientation & Foundational Services](/worklog/week-1)  \r
 Initial onboarding, AWS service taxonomy, Console & CLI fundamentals\r
-`,yI=`> **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn.\r
-\r
-Đây là trang tổng quan về nhật ký công việc 12 tuần của chương trình thực tập First Cloud Journey tại Amazon Web Services Vietnam.\r
+`,yI=`Đây là trang tổng quan về nhật ký công việc 12 tuần của chương trình thực tập First Cloud Journey tại Amazon Web Services Vietnam.\r
 \r
 Mỗi tuần ghi lại các mục tiêu cụ thể, công việc đã hoàn thành, tài nguyên sử dụng và kết quả đạt được.\r
 \r

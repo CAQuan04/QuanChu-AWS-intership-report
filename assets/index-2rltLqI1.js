@@ -1016,69 +1016,17 @@ Each week documents specific objectives, tasks completed, resources utilized, an
 \r
 **Week 1** — [AWS Ecosystem Orientation & Foundational Services](/worklog/week-1)  \r
 Initial onboarding, AWS service taxonomy, Console & CLI fundamentals\r
-\r
-**Week 2** — [Task Documentation Placeholder](/worklog/week-2)  \r
-*To be updated with actual week 2 activities*\r
-\r
-**Week 3** — [Task Documentation Placeholder](/worklog/week-3)  \r
-*To be updated with actual week 3 activities*\r
-\r
-**Week 4** — [Task Documentation Placeholder](/worklog/week-4)  \r
-*To be updated with actual week 4 activities*\r
-\r
-**Week 5** — [Task Documentation Placeholder](/worklog/week-5)  \r
-*To be updated with actual week 5 activities*\r
-\r
-**Week 6** — [Task Documentation Placeholder](/worklog/week-6)  \r
-*To be updated with actual week 6 activities*\r
-\r
-**Week 7** — [Task Documentation Placeholder](/worklog/week-7)  \r
-*To be updated with actual week 7 activities*\r
-\r
-**Week 8** — [Task Documentation Placeholder](/worklog/week-8)  \r
-*To be updated with actual week 8 activities*\r
-\r
-**Week 9** — [Task Documentation Placeholder](/worklog/week-9)  \r
-*To be updated with actual week 9 activities*\r
-\r
-**Week 10** — [Task Documentation Placeholder](/worklog/week-10)  \r
-*To be updated with actual week 10 activities*\r
-\r
-**Week 11** — [Task Documentation Placeholder](/worklog/week-11)  \r
-*To be updated with actual week 11 activities*\r
-\r
-**Week 12** — [Task Documentation Placeholder](/worklog/week-12)  \r
-*To be updated with actual week 12 activities*\r
 `,yI=`> **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn.\r
 \r
-**Trong trang này** bạn sẽ cần giới thiệu worklog của bạn **như thế nào**? Bạn hoàn thành chương trình trong vòng **bao nhiêu tuần**? Bạn **đã làm gì** trong các tuần đó?\r
+Đây là trang tổng quan về nhật ký công việc 12 tuần của chương trình thực tập First Cloud Journey tại Amazon Web Services Vietnam.\r
 \r
+Mỗi tuần ghi lại các mục tiêu cụ thể, công việc đã hoàn thành, tài nguyên sử dụng và kết quả đạt được.\r
 \r
-Thông thường và cũng là tiêu chuẩn, một worklog được thực hiện trong khoảng 3 tháng (trong suốt thời gian thực tập) với nội dung các tuần như sau:\r
+---\r
 \r
-**Tuần 1:** [Làm quen với AWS và các dịch vụ cơ bản trong AWS](/worklog/week-1)\r
+### TIẾN TRÌNH THỰC TẬP\r
 \r
-**Tuần 2:** [Làm công việc A...](/worklog/week-2)\r
-\r
-**Tuần 3:** [Làm công việc B...](/worklog/week-3)\r
-\r
-**Tuần 4:** [Làm công việc C...](/worklog/week-4)\r
-\r
-**Tuần 5:** [Làm công việc D...](/worklog/week-5)\r
-\r
-**Tuần 6:** [Làm công việc E...](/worklog/week-6)\r
-\r
-**Tuần 7:** [Làm công việc G...](/worklog/week-7)\r
-\r
-**Tuần 8:** [Làm công việc H...](/worklog/week-8)\r
-\r
-**Tuần 9:** [Làm công việc I...](/worklog/week-9)\r
-\r
-**Tuần 10:** [Làm công việc L...](/worklog/week-10)\r
-\r
-**Tuần 11:** [Làm công việc M...](/worklog/week-11)\r
-\r
-**Tuần 12:** [Làm công việc N...](/worklog/week-12)\r
+**Tuần 1:** [Định hướng & Các dịch vụ cơ bản của AWS](/worklog/week-1)\r
 `,EI=`# WEEK 1 — Orientation & AWS Foundational Services\r
 \r
 **Period:** January 05 - January 09, 2025\r

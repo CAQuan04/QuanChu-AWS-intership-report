@@ -1,27 +1,43 @@
-# Clean up
+# Cleanup
 
-Congratulations on completing this workshop! 
-In this workshop, you learned architecture patterns for accessing Amazon S3 without using the Public Internet. 
-+ By creating a gateway endpoint, you enabled direct communication between EC2 resources and Amazon S3, without traversing an Internet Gateway. 
-+ By creating an interface endpoint you extended S3 connectivity to resources running in your on-premises data center via AWS Site-to-Site VPN or Direct Connect. 
 
-#### clean up
-1. Navigate to Hosted Zones on the left side of Route 53 console. Click the name of *s3.us-east-1.amazonaws.com* zone. Click Delete and confirm deletion by typing delete. 
+After completing the workshop, cleaning up your resources is a critical step to avoid unexpected AWS charges. Some resources, such as NAT Instances and ALBs, incur hourly costs even when not processing any traffic.
 
-![hosted zone](/images/5-Workshop/5.6-Cleanup/delete-zone.png)
+> [!IMPORTANT]
+> The estimated cost of maintaining the resources in this workshop is approximately **$44/month**. Please follow the steps below as soon as you are finished testing.
 
-2. Disassociate the Route 53 Resolver Rule - myS3Rule from "VPC Onprem" and Delete it. 
+## Resource Deletion Order
 
-![hosted zone](/images/5-Workshop/5.6-Cleanup/vpc.png)
+To avoid "Resource in use" errors, you should perform the deletion in order from the application layer out to the network infrastructure layer.
 
-3. Open the CloudFormation console  and delete the two CloudFormation Stacks that you created for this lab:
-+ PLOnpremSetup
-+ PLCloudSetup
+### 1. Application & Compute Layer (ECS & ALB)
 
-![delete stack](/images/5-Workshop/5.6-Cleanup/delete-stack.png)
+1. **ECS Service**: Go to ECS Cluster -> select the service `nutritrack-api-service` -> click **Delete**. Wait for all Tasks to stop completely.
+2. **ECS Cluster**: Once the Service has been deleted, you can delete the cluster itself.
+3. **Application Load Balancer (ALB)**: Go to EC2 -> Load Balancers -> Select the workshop ALB -> **Actions** -> **Delete**.
+4. **Target Group**: Delete the corresponding Target Group for the ALB.
 
-4. Delete S3 buckets
-+ Open S3 console
-+ Choose the bucket we created for the lab, click and confirm empty. Click delete and confirm delete.
+### 2. Networking Layer (VPC & NAT)
 
-![delete s3](/images/5-Workshop/5.6-Cleanup/delete-s3.png)
+1. **NAT Instances**: Go to the EC2 Console -> Instances -> Select your NAT Instances -> **Terminate instance**.
+2. **VPC**: Go to the VPC Console -> Your VPCs -> Select `nutritrack-api-vpc` -> **Actions** -> **Delete VPC**.
+    - *Note: AWS will automatically delete Subnets, Internet Gateways, and Route Tables associated with the VPC.*
+
+### 3. Backend & Storage Layer (Amplify & S3)
+
+1. **AWS Amplify**: Go to the Amplify Console -> Select the NutriTrack app -> **Actions** -> **Delete app**. This will remove all associated resources (Cognito, DynamoDB, AppSync).
+2. **S3 Bucket**: Go to the S3 Console -> Find the cache bucket (`nutritrack-cache-xxxx`). You must **Empty** the bucket before you can **Delete** it.
+3. **Secrets Manager**: Go to Secrets Manager -> Select the secret containing your API Keys -> **Delete secret**. (Note: AWS defaults to a 7-30 day waiting period before permanent deletion).
+
+### 4. IAM & CloudWatch
+
+1. **IAM Roles**: Delete manually created roles such as `ecsTaskRole` and `ecsTaskExecutionRole` if they are no longer needed for other projects.
+2. **CloudWatch Logs**: Delete the Log Groups (`/ecs/nutritrack-api`) to keep your management interface clean.
+
+---
+
+Congratulations on successfully completing the NutriTrack deployment workshop on AWS! We hope the knowledge of Hybrid Architecture (Serverless + Container) and networking cost optimization will be valuable for your future real-world projects.
+
+[Back to Homepage](../../)
+
+

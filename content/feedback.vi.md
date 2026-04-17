@@ -1,36 +1,71 @@
-# Chia sẻ, đóng góp ý kiến
+# Chia sẻ và đóng góp ý kiến
 
 
-Tại đây bạn có thể tự do đóng góp ý kiến cá nhân về những trải nghiệm khi tham gia chương trình First Cloud Journey, giúp team FCJ cải thiện những vấn đề còn thiếu sót dựa trên các hạng mục sau:
+## 1. Trải nghiệm tổng quan
 
-### Đánh giá chung
+Chương trình thực tập First Cloud AI Journey là một trải nghiệm vô cùng giá trị, đặc biệt là từ góc độ bảo mật. Trong suốt 12 tuần, tôi không chỉ khám phá các công nghệ đám mây mà còn hiểu sâu hơn về cách thiết kế và vận hành hệ thống một cách an toàn trên AWS. Sự kết hợp giữa kiến ​​thức lý thuyết và thực hành đã giúp tôi nhận ra những thách thức bảo mật thực tế như kiểm soát truy cập, bảo vệ dữ liệu và tăng cường bảo mật hệ thống. Sự hướng dẫn và hỗ trợ từ cộng đồng đã củng cố thêm khả năng tư duy phản biện của tôi về bảo mật trong kiến ​​trúc đám mây.
 
-**1. Môi trường làm việc**  
-Môi trường làm việc rất thân thiện và cởi mở. Các thành viên trong FCJ luôn sẵn sàng hỗ trợ khi mình gặp khó khăn, kể cả ngoài giờ làm việc. Không gian làm việc gọn gàng, thoải mái, giúp mình tập trung tốt hơn. Tuy nhiên, mình nghĩ có thể bổ sung thêm một số buổi giao lưu hoặc team bonding để mọi người hiểu nhau hơn.
+---
 
-**2. Sự hỗ trợ của mentor / team admin**  
-Mentor hướng dẫn rất chi tiết, giải thích rõ ràng khi mình chưa hiểu và luôn khuyến khích mình đặt câu hỏi. Team admin hỗ trợ các thủ tục, tài liệu và tạo điều kiện để mình làm việc thuận lợi. Mình đánh giá cao việc mentor cho phép mình thử và tự xử lý vấn đề thay vì chỉ đưa đáp án.
+## 2. Mức độ hài lòng
 
-**3. Sự phù hợp giữa công việc và chuyên ngành học**  
-Công việc mình được giao phù hợp với kiến thức mình đã học ở trường, đồng thời mở rộng thêm những mảng mới mà mình chưa từng được tiếp cận. Nhờ vậy, mình vừa củng cố kiến thức nền tảng, vừa học thêm kỹ năng thực tế.
+Tôi đánh giá mức độ hài lòng của mình là 9/10. Chương trình đã cung cấp nền tảng vững chắc về cả điện toán đám mây và các thực tiễn bảo mật. Các chủ đề được cấu trúc tốt, cho phép tôi dần dần hiểu được cách bảo mật tích hợp vào từng lớp của hệ thống. Tuy nhiên, tôi tin rằng chương trình có thể được cải thiện bằng cách dành nhiều thời gian hơn cho các kịch bản bảo mật nâng cao, chẳng hạn như mô hình hóa mối đe dọa, kiểm thử xâm nhập và mô phỏng phản ứng sự cố.
 
-**4. Cơ hội học hỏi & phát triển kỹ năng**  
-Trong quá trình thực tập, mình học được nhiều kỹ năng mới như sử dụng công cụ quản lý dự án, kỹ năng làm việc nhóm, và cả cách giao tiếp chuyên nghiệp trong môi trường công ty. Mentor cũng chia sẻ nhiều kinh nghiệm thực tế giúp mình định hướng tốt hơn cho sự nghiệp.
+---
 
-**5. Văn hóa & tinh thần đồng đội**  
-Văn hóa công ty rất tích cực: mọi người tôn trọng lẫn nhau, làm việc nghiêm túc nhưng vẫn vui vẻ. Khi có dự án gấp, mọi người cùng nhau cố gắng, hỗ trợ không phân biệt vị trí. Điều này giúp mình cảm thấy mình là một phần của tập thể, dù chỉ là thực tập sinh.
+## 3. Kiến thức thu được
 
-**6. Chính sách / phúc lợi cho thực tập sinh**  
-Công ty có hỗ trợ phụ cấp thực tập và tạo điều kiện về thời gian linh hoạt khi cần thiết. Ngoài ra, việc được tham gia các buổi đào tạo nội bộ là một điểm cộng lớn.
+Trong thời gian thực tập, tôi đã phát triển kiến ​​thức về bảo mật trong một số lĩnh vực chính:
 
+- Bảo mật các dịch vụ cốt lõi của AWS (S3, Lambda, DynamoDB, AppSync, Cognito)
 
-### Một số câu hỏi khác
-- Điều bạn **hài lòng nhất** trong thời gian thực tập?  
-- Điều bạn nghĩ công ty **cần cải thiện** cho các thực tập sinh sau?  
-- Nếu giới thiệu cho bạn bè, bạn có **khuyên họ thực tập ở đây không**? Vì sao?  
+- Triển khai Cơ sở hạ tầng dưới dạng mã một cách an toàn bằng Amplify Gen 2 (TypeScript CDK)
 
+- Thiết kế kiến ​​trúc serverless an toàn với các mô hình hướng sự kiện
 
-### Đề xuất & mong muốn
-- Bạn có đề xuất gì để cải thiện trải nghiệm trong kỳ thực tập?  
-- Bạn có muốn tiếp tục chương trình này trong tương lai?
-- Góp ý khác (tự do chia sẻ):
+- Áp dụng các chính sách IAM với nguyên tắc quyền hạn tối thiểu và kiểm soát truy cập dựa trên vai trò
+
+- Hiểu các luồng xác thực và ủy quyền bằng Cognito
+
+- Tích hợp Trí tuệ nhân tạo tạo sinh (Amazon Bedrock, Amazon Transcribe) với sự chú trọng đến quyền riêng tư dữ liệu và sử dụng API an toàn
+
+Những khái niệm này đã được áp dụng trực tiếp trong dự án NutriTrack của tôi, nơi các yếu tố bảo mật được tích hợp vào thiết kế và triển khai hệ thống.
+
+---
+
+## 4. Kỹ năng được cải thiện
+
+Ngoài kiến ​​thức chuyên môn, tôi đã củng cố một số kỹ năng chuyên nghiệp và liên quan đến bảo mật:
+
+- Viết tài liệu kỹ thuật tập trung vào bảo mật
+- Xác định các lỗ hổng tiềm ẩn và đề xuất các chiến lược giảm thiểu
+- Truyền đạt các khái niệm bảo mật một cách rõ ràng cho cả đối tượng chuyên môn và không chuyên môn
+- Hợp tác trong nhóm với tư duy ưu tiên bảo mật
+- Quản lý rủi ro và xử lý các vấn đề dưới áp lực
+
+Những kỹ năng này rất cần thiết để xây dựng và duy trì các hệ thống an toàn trong môi trường thực tế.
+
+---
+
+## 5. Đề xuất cải tiến
+
+Để nâng cao hơn nữa chương trình từ góc độ bảo mật, tôi đề xuất:
+
+1. Bổ sung các module chuyên sâu về kiến ​​trúc bảo mật đám mây và mô hình hóa mối đe dọa
+2. Cung cấp các bài thực hành tập trung vào các lỗ hổng phổ biến (ví dụ: cấu hình IAM sai, API bị lộ)
+3. Tổ chức các buổi đánh giá hoặc kiểm toán bảo mật cho các dự án hội thảo
+4. Giới thiệu các bài tập kiểm thử xâm nhập hoặc đánh giá bảo mật cơ bản
+5. Cung cấp thêm tài liệu địa phương (tiếng Việt) về các thực tiễn tốt nhất về bảo mật đám mây
+
+---
+
+## 6. Khuyến nghị
+
+Tôi đặc biệt khuyến nghị chương trình thực tập FCJ, nhất là đối với những người quan tâm đến cả điện toán đám mây và bảo mật. Chương trình cung cấp:
+
+- Kinh nghiệm thực tế trong việc xây dựng các hệ thống dựa trên đám mây an toàn
+- Tiếp xúc với các thực tiễn bảo mật thực tế trên AWS
+- Hướng dẫn từ các cố vấn giàu kinh nghiệm
+- Môi trường hợp tác khuyến khích các thực tiễn phát triển an toàn
+
+Nhìn chung, đây là điểm khởi đầu tuyệt vời cho bất kỳ ai muốn theo đuổi sự nghiệp trong lĩnh vực bảo mật đám mây hoặc kỹ thuật phần mềm an toàn.

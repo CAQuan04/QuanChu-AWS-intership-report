@@ -1,116 +1,31 @@
-# Bài thu hoạch “GenAI-powered App-DB Modernization workshop”
+# AWS Cloud Mastery 1
 
-> **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn.
 
-### Mục Đích Của Sự Kiện
+**Ngày:** 14 tháng 3, 2026
+**Địa điểm:** Văn phòng AWS Việt Nam (Tầng 26), TP. Hồ Chí Minh
+**Vai trò:** Người tham dự (FCJ Cloud Intern - Team NeuraX)
 
-- Chia sẻ best practices trong thiết kế ứng dụng hiện đại
-- Giới thiệu phương pháp DDD và event-driven architecture
-- Hướng dẫn lựa chọn compute services phù hợp
-- Giới thiệu công cụ AI hỗ trợ development lifecycle
+## Mô tả sự kiện
 
-### Danh Sách Diễn Giả
+Sự kiện là buổi chia sẻ chuyên sâu dành cho cộng đồng công nghệ Việt Nam, quy tụ các lập trình viên và những người đam mê điện toán đám mây để tìm hiểu về các ứng dụng thực tế của AI và dịch vụ AWS thông qua các dự án cụ thể được đúc kết từ quá trình thực hành.
 
-- **Jignesh Shah** - Director, Open Source Databases
-- **Erica Liu** - Sr. GTM Specialist, AppMod
-- **Fabrianne Effendi** - Assc. Specialist SA, Serverless Amazon Web Services
+## Các hoạt động chính
 
-### Nội Dung Nổi Bật
+Sự kiện bao gồm 3 phiên trình bày kỹ thuật chính tập trung vào việc ứng dụng AI, tối ưu hóa Prompt và kiến trúc Serverless:
 
-#### Đưa ra các ảnh hưởng tiêu cực của kiến trúc ứng dụng cũ
+**Phiên 1: Xây dựng AI Agents & Frameworks**  
+Giới thiệu cách xây dựng AI Agent bằng một open SDK framework giúp tự động hóa việc định nghĩa công cụ (tìm kiếm web, chạy code Python) và kết nối với các mô hình như Amazon Bedrock. Phiên trình bày cũng nhấn mạnh các khái niệm cốt lõi của Agent như bộ nhớ (memory), khả năng suy luận đa bước (multi-step reasoning) và gọi tool để giải quyết các luồng công việc phức tạp.
 
-- Thời gian release sản phẩm lâu → Mất doanh thu/bỏ lỡ cơ hội
-- Hoạt động kém hiệu quả → Mất năng suất, tốn kém chi phí
-- Không tuân thủ các quy định về bảo mật → Mất an ninh, uy tín
+**Phiên 2: Prompt Engineering & Serverless Architecture**  
+Đi sâu vào các kỹ thuật Prompt Engineering (Role prompting, Chain of Thought, Tree of Thought) để tối ưu hóa kết quả AI đầu ra và giảm thiểu chi phí token đắt đỏ. Demo thực tế một tiện ích mở rộng (extension) "Prompt Optimizer" được xây dựng hoàn toàn trên kiến trúc AWS Serverless (bao gồm S3, CloudFront, Cognito, API Gateway, Lambda, DynamoDB và Bedrock) với chi phí vận hành gần như bằng không.
 
-#### Chuyển đổi sang kiến trúc ứng dụng mới - Microservice Architecture
+**Phiên 3: Ứng dụng AI vào Sản phẩm thực tế**  
+Trình bày các dự án ứng dụng AI giải quyết bài toán thực tế. Demo 1 là Tủ thông minh IoT (quản lý thiết bị của câu lạc bộ) sử dụng Raspberry Pi, AWS IoT Core, S3, DynamoDB và Amazon Rekognition để nhận diện khuôn mặt tự động. Demo 2 là ứng dụng Quản lý tài chính cá nhân sử dụng Amazon Textract để quét, phân tích và trích xuất hóa đơn mua hàng một cách chính xác theo ngữ cảnh.
 
-Chuyển đổi thành hệ thống modular – từng chức năng là một **dịch vụ độc lập** giao tiếp với nhau qua **sự kiện** với 3 trụ cột cốt lõi:
+## Kết quả
 
-- **Queue Management**: Xử lý tác vụ bất đồng bộ
-- **Caching Strategy:** Tối ưu performance
-- **Message Handling:** Giao tiếp linh hoạt giữa services
-
-#### Domain-Driven Design (DDD)
-
-- **Phương pháp 4 bước**: Xác định domain events → sắp xếp timeline → identify actors → xác định bounded contexts
-- **Case study bookstore**: Minh họa cách áp dụng DDD thực tế
-- **Context mapping**: 7 patterns tích hợp bounded contexts
-
-#### Event-Driven Architecture
-
-- **3 patterns tích hợp**: Publish/Subscribe, Point-to-point, Streaming
-- **Lợi ích**: Loose coupling, scalability, resilience
-- **So sánh sync vs async**: Hiểu rõ trade-offs (sự đánh đổi)
-
-#### Compute Evolution
-
-- **Shared Responsibility Model**: Từ EC2 → ECS → Fargate → Lambda
-- **Serverless benefits**: No server management, auto-scaling, pay-for-value
-- **Functions vs Containers**: Criteria lựa chọn phù hợp
-
-#### Amazon Q Developer
-
-- **SDLC automation**: Từ planning đến maintenance
-- **Code transformation**: Java upgrade, .NET modernization
-- **AWS Transform agents**: VMware, Mainframe, .NET migration
-
-### Những Gì Học Được
-
-#### Tư Duy Thiết Kế
-
-- **Business-first approach**: Luôn bắt đầu từ business domain, không phải technology
-- **Ubiquitous language**: Importance của common vocabulary giữa business và tech teams
-- **Bounded contexts**: Cách identify và manage complexity trong large systems
-
-#### Kiến Trúc Kỹ Thuật
-
-- **Event storming technique**: Phương pháp thực tế để mô hình hóa quy trình kinh doanh
-- Sử dụng **Event-driven communication** thay vì synchronous calls
-- **Integration patterns**: Hiểu khi nào dùng sync, async, pub/sub, streaming
-- **Compute spectrum**: Criteria chọn từ VM → containers → serverless
-
-#### Chiến Lược Hiện Đại Hóa
-
-- **Phased approach**: Không rush, phải có roadmap rõ ràng
-- **7Rs framework**: Nhiều con đường khác nhau tùy thuộc vào đặc điểm của mỗi ứng dụng
-- **ROI measurement**: Cost reduction + business agility
-
-### Ứng Dụng Vào Công Việc
-
-- **Áp dụng DDD** cho project hiện tại: Event storming sessions với business team
-- **Refactor microservices**: Sử dụng bounded contexts để identify service boundaries
-- **Implement event-driven patterns**: Thay thế một số sync calls bằng async messaging
-- **Serverless adoption**: Pilot AWS Lambda cho một số use cases phù hợp
-- **Try Amazon Q Developer**: Integrate vào development workflow để boost productivity
-
-### Trải nghiệm trong event
-
-Tham gia workshop **“GenAI-powered App-DB Modernization”** là một trải nghiệm rất bổ ích, giúp tôi có cái nhìn toàn diện về cách hiện đại hóa ứng dụng và cơ sở dữ liệu bằng các phương pháp và công cụ hiện đại. Một số trải nghiệm nổi bật:
-
-#### Học hỏi từ các diễn giả có chuyên môn cao
-- Các diễn giả đến từ AWS và các tổ chức công nghệ lớn đã chia sẻ **best practices** trong thiết kế ứng dụng hiện đại.
-- Qua các case study thực tế, tôi hiểu rõ hơn cách áp dụng **Domain-Driven Design (DDD)** và **Event-Driven Architecture** vào các project lớn.
-
-#### Trải nghiệm kỹ thuật thực tế
-- Tham gia các phiên trình bày về **event storming** giúp tôi hình dung cách **mô hình hóa quy trình kinh doanh** thành các domain events.
-- Học cách **phân tách microservices** và xác định **bounded contexts** để quản lý sự phức tạp của hệ thống lớn.
-- Hiểu rõ trade-offs giữa **synchronous và asynchronous communication** cũng như các pattern tích hợp như **pub/sub, point-to-point, streaming**.
-
-#### Ứng dụng công cụ hiện đại
-- Trực tiếp tìm hiểu về **Amazon Q Developer**, công cụ AI hỗ trợ SDLC từ lập kế hoạch đến maintenance.
-- Học cách **tự động hóa code transformation** và pilot serverless với **AWS Lambda**, từ đó nâng cao năng suất phát triển.
-
-#### Kết nối và trao đổi
-- Workshop tạo cơ hội trao đổi trực tiếp với các chuyên gia, đồng nghiệp và team business, giúp **nâng cao ngôn ngữ chung (ubiquitous language)** giữa business và tech.
-- Qua các ví dụ thực tế, tôi nhận ra tầm quan trọng của **business-first approach**, luôn bắt đầu từ nhu cầu kinh doanh thay vì chỉ tập trung vào công nghệ.
-
-#### Bài học rút ra
-- Việc áp dụng DDD và event-driven patterns giúp giảm **coupling**, tăng **scalability** và **resilience** cho hệ thống.
-- Chiến lược hiện đại hóa cần **phased approach** và đo lường **ROI**, không nên vội vàng chuyển đổi toàn bộ hệ thống.
-- Các công cụ AI như Amazon Q Developer có thể **boost productivity** nếu được tích hợp vào workflow phát triển hiện tại.
-
-#### Một số hình ảnh khi tham gia sự kiện
-* Thêm các hình ảnh của các bạn tại đây
-
-> Tổng thể, sự kiện không chỉ cung cấp kiến thức kỹ thuật mà còn giúp tôi thay đổi cách tư duy về thiết kế ứng dụng, hiện đại hóa hệ thống và phối hợp hiệu quả hơn giữa các team.
+- Agentic AI là xu hướng: Các AI Agents có thể tự động hóa quy trình làm việc phức tạp thông qua việc liên tục suy luận, đánh giá môi trường và sử dụng các công cụ bên ngoài.
+- Tối ưu chi phí bằng Prompt Engineering: Áp dụng các kỹ thuật cấu trúc prompt tốt và ưu tiên sử dụng tiếng Anh giúp giảm thiểu đáng kể chi phí token input/output khi gọi các mô hình AI lớn.
+- Kiến trúc Serverless cực kỳ tối ưu: Sự kết hợp giữa AWS Lambda, Cognito, S3 và API Gateway cung cấp một backend với khả năng mở rộng cao, không cần quản lý máy chủ và tiết kiệm chi phí tối đa cho các dự án AI.
+- Sức mạnh của Amazon Rekognition: Cung cấp khả năng nhận diện khuôn mặt và vật thể vượt trội, có thể sử dụng Custom Labels để huấn luyện nhận diện riêng cho các dự án phần cứng/IoT với chi phí hợp lý.
+- Vượt qua giới hạn của OCR truyền thống: Amazon Textract được hỗ trợ bởi AI giúp hiểu được ngữ cảnh của tài liệu, phân biệt rõ ràng giữa tên sản phẩm và giá tiền, lý tưởng để xử lý các biểu mẫu phức tạp như hóa đơn mà OCR thông thường thường xuyên đọc lỗi.

@@ -1,45 +1,38 @@
-# WEEK 1 — Orientation & AWS Foundational Services
+# Worklog Week 1
 
-**Period:** January 05 - January 09, 2025
 
----
+### Week 1 Goals:
 
-### WEEKLY OBJECTIVES
+* Connect and get acquainted with members of the First Cloud AI Journey.
 
-- Complete onboarding and integration with the First Cloud Journey team.
-- Set up AWS account and practice environment.
-- Master fundamental concepts of AWS Cloud and Global Infrastructure.
-- Complete hands-on Labs regarding IAM, VPC, EC2, and Cost Management.
+* Understand basic AWS services.
 
----
+### Tasks to be implemented this week:
+| Day | Task | Start Date | Completion Date | Resources |
+| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
+| 2 | - Kick-off at the company <br> - Gain a better understanding of company culture, effective work and learning methods <br> - Understand company rules during the work process <br> - Form a team | 05/01/2026 | 05/01/2026 |
+| 3 | - Learn about AWS services <br>&emsp; + EC2 <br>&emsp; + S3 <br>&emsp; + Networking <br>&emsp; + Database | 06/01/2026 | 06/01/2026 | <https://cloudjourney.awsstudygroup.com/><br><https://www.udemy.com/course/vo-long-ve-amazon-web-services/> |
+| 4 | - Practice drawing diagrams on draw.io following the video tutorial | 07/01/2026 | 07/01/2026 | <https://www.youtube.com/watch?v=l8isyDe-GwY> |
+| 5 | - Meeting: Understand the strengths and weaknesses of each member, agree on a working method during the learning and project work at AWS | 08/01/2026 | 08/01/2026 |
+| 6 | - AWS Workshop: Creating a personal blog website | 09/01/2026 | 09/01/2026 | <https://www.youtube.com/watch?v=l8isyDe-GwY>|
+| 7 | - Deploy AWS Workshop website to GitHub | January 10, 2026 | January 10, 2026 |
 
-### TASK BREAKDOWN
+### Week 1 Achievements:
 
-| Day | Key Activities | Start Date | Completion | Reference |
-|-----|----------------|------------|------------|-----------|
-| **Mon** | **Account Setup & Documentation Study**<br>- Create a new AWS account.<br>- Read and research guidelines at Cloud Journey.<br>- **Outcome:** Successfully created account and received $200 credit. | Jan 05, 2025 | Jan 05, 2025 | [Cloud Journey](https://cloudjourney.awsstudygroup.com/) |
-| **Tue** | **Team Meeting & Planning**<br>- Attend team meeting at the office.<br>- Discuss and build work plans.<br>- Knowledge sharing and orientation with members. | Jan 06, 2025 | Jan 06, 2025 | Internal Discussion |
-| **Wed** | **Hands-on Labs (6 Basic Modules)**<br>- Managing Costs with AWS Budgets<br>- Getting Help with AWS Support<br>- Access Management with IAM<br>- Networking Essentials (VPC)<br>- Compute Essentials (EC2)<br>- Instance Profiling with IAM Roles | Jan 07, 2025 | Jan 07, 2025 | [Cloud Journey](https://cloudjourney.awsstudygroup.com/) |
-| **Thu** | **Report Proposal Development**<br>- Brainstorm ideas and structure (Layout) for the AWS Internship Report.<br>- Write a detailed Proposal for the project. | Jan 08, 2025 | Jan 08, 2025 | Personal Docs |
-| **Fri** | **Foundational Study & Practice**<br>- Basics of Cloud and AWS.<br>- AWS Global Infrastructure (Regions, AZs, Edge Locations).<br>- Groups, Roles, and Policies in IAM.<br>- Simple AWS architecture setup (Subnet, Security Group, EC2, RDS). | Jan 09, 2025 | Jan 09, 2025 | [AWS Documentation](https://docs.aws.amazon.com/) |
-
----
-
-### DELIVERABLES & OUTCOMES
-
-**1. Practice Environment:**
-- Successfully activated AWS Free Tier account and secured $200 credit package.
-- Understood registration process and basic Billing Alarm setup.
-
-**2. Technical Knowledge:**
-- **Cloud Basics:** Mastered the Shared Responsibility Model and Cloud Computing benefits.
-- **Infrastructure:** Clear understanding of AWS Global Infrastructure and Region selection strategy.
-- **IAM (Identity and Access Management):** Understood permission mechanisms via Users, Groups, Roles, and Policies.
-
-**3. Practical Skills:**
-- Excellent completion of 6 introductory Labs.
-- Capable of deploying a simple architecture including: VPC, Subnet, Security Group, EC2 instance, and RDS database.
-- Know how to use AWS Budgets for cost monitoring.
-
-**4. Documentation:**
-- Finalized Proposal for Internship Report, clearly defining structure and content to be executed.
+- Completed **kick-off at the company**, understanding:
+  - Work culture
+  - Learning process and teamwork
+  - Regulations to be followed during the AWS internship
+  - **Formed a working group**, assigned initial roles and agreed on methods for communication and progress reporting.
+- Gain a **general understanding of AWS core services**, including:
+  - EC2: the concept of virtual servers and basic usage
+  - S3: object storage and common applications
+  - Networking: fundamental knowledge of networking in AWS
+- **Practice drawing system architectures on draw.io**, understanding how to represent:
+  - AWS components
+  - Data flow in the system
+  - Basic architecture of a cloud application
+- **Successfully deploy the workshop website to GitHub**, becoming familiar with:
+  - Source code management process
+  - Publish the website using GitHub Pages
+  - Begin to form a **teamworkflow**, preparing for more complex labs and projects in the following weeks.

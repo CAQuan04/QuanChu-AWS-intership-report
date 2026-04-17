@@ -1,107 +1,225 @@
-# IoT Weather Platform for Lab Research
-## A Unified AWS Serverless Solution for Real-Time Weather Monitoring
+# Proposal
 
-> **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report.
 
-In this section, you need to summarize the contents of the workshop that you **plan** to conduct.
+# NutriTrack Platform
 
-### 1. Executive Summary
-The IoT Weather Platform is designed for the ITea Lab team in Ho Chi Minh City to enhance weather data collection and analysis. It supports up to 5 weather stations, with potential scalability to 10-15, utilizing Raspberry Pi edge devices with ESP32 sensors to transmit data via MQTT. The platform leverages AWS Serverless services to deliver real-time monitoring, predictive analytics, and cost efficiency, with access restricted to 5 lab members via Amazon Cognito.
+## AWS Serverless Solution with Integrated AI for Nutrition Tracking
 
-### 2. Problem Statement
-#### What’s the Problem?
-Current weather stations require manual data collection, becoming unmanageable with multiple units. There is no centralized system for real-time data or analytics, and third-party platforms are costly and overly complex.
+---
 
-#### The Solution
-The platform uses AWS IoT Core to ingest MQTT data, AWS Lambda and API Gateway for processing, Amazon S3 for storage (including a data lake), and AWS Glue Crawlers and ETL jobs to extract, transform, and load data from the S3 data lake to another S3 bucket for analysis. AWS Amplify with Next.js provides the web interface, and Amazon Cognito ensures secure access. Similar to Thingsboard and CoreIoT, users can register new devices and manage connections, though this platform operates on a smaller scale and is designed for private use. Key features include real-time dashboards, trend analysis, and low operational costs.
+### 1. Project Summary
 
-#### Benefits and Return on Investment
-The solution establishes a foundational resource for lab members to develop a larger IoT platform, serving as a study resource, and provides a data foundation for AI enthusiasts for model training or analysis. It reduces manual reporting for each station via a centralized platform, simplifying management and maintenance, and improves data reliability. Monthly costs are $0.66 USD per the AWS Pricing Calculator, with a 12-month total of $7.92 USD. All IoT equipment costs are covered by the existing weather station setup, eliminating additional development expenses. The break-even period of 6-12 months is achieved through significant time savings from reduced manual work.
+NutriTrack was built for Gen Z and Millennials in Vietnam—those who want to monitor their personal health in a practical, uncomplicated way. The platform targets over 1,000 active users, with a cross-platform mobile interface developed using React Native (Expo), allowing for meal data capture via photos, voice, or manual input.
+
+The entire infrastructure complies with the AWS Well-Architected Framework, leveraging the serverless ecosystem (AWS Amplify Gen 2, AppSync, Lambda) and the Generative AI capabilities of Amazon Bedrock (model Qwen3-VL 235B). The result is a real-time nutrition tracking system with AI prediction, rich gamification mechanisms, and optimized operating costs—all protected by Amazon Cognito combined with Google OAuth2.
+
+---
+
+### 2. Context and Solution
+
+#### Current Problem
+
+Most current nutrition tracking applications require users to manually input data—boring and easy to give up on. Food databases are often poor in Vietnamese cuisine, lacking familiar dishes like pho, banh mi, or bun bo Hue. Furthermore, third-party nutrition APIs (Nutritionix, FatSecret) are expensive to scale and limited in data models.
+
+Refrigerator management, daily meal planning, and utilizing available ingredients are also unresolved issues—leading to food waste and inconsistent eating habits.
+
+#### How does NutriTrack solve this?
+
+NutriTrack adopts a completely serverless AWS-native architecture:
+
+- **AWS AppSync (GraphQL)** receives meal data via mutations and real-time subscriptions.
+
+- **AWS Lambda** with 5 specialized functions handles all backend logic — from AI coordination and nutrition processing to friend management and image optimization.
+
+- **Amazon DynamoDB** stores 6 core data models with the ability to scale automatically according to load.
+
+- **Amazon Bedrock (Qwen3-VL 235B)** analyzes food images, suggests recipes, and generates intelligent nutritional data.
+
+- **AWS Amplify Gen 2** combines React Native/Expo to create a smooth bilingual Vietnamese-English interface.
+
+**Key Features:**
+
+| Feature | Description |
+
+|-----------|-------|
+
+| 📸 Food Image Analysis | Take a picture — instantly receive a detailed nutrition chart via Vision AI |
+
+| 🎙️ Voice Logging | AWS Transcribe converts speech into specific food items |
+
+| 🍳 Smart Refrigerator | Tracks food, suggests menus from ingredients nearing their expiration date |
+
+| 🤖 AI Coach "Ollie" | Personalized nutrition advice (Vietnamese name: Bảo) |
+
+| 🎮 Gamification | 180-day Dragon evolution journey, pets, challenges |
+
+| 👥 Social Features | Make friends, public Streak and Pet Score leaderboards |
+
+#### Cost-Effectiveness
+
+The actual operating cost is optimized at **$60.87/month** for 1,000 active users. This is achieved by the strategy of moving the Lambda functions processing AI outside the VPC to eliminate NAT Gateway costs and minimize latency.
+
+---
 
 ### 3. Solution Architecture
-The platform employs a serverless AWS architecture to manage data from 5 Raspberry Pi-based stations, scalable to 15. Data is ingested via AWS IoT Core, stored in an S3 data lake, and processed by AWS Glue Crawlers and ETL jobs to transform and load it into another S3 bucket for analysis. Lambda and API Gateway handle additional processing, while Amplify with Next.js hosts the dashboard, secured by Cognito. The architecture is detailed below:
 
-![IoT Weather Station Architecture](https://raw.githubusercontent.com/quan-chu/fcj-workshop-template/main/static/images/2-Proposal/edge_architecture.jpeg)
+Data migrates from React Native application → CloudFront/WAF (edge-to-edge security) → AppSync GraphQL API → Lambda handlers → DynamoDB. Heavy image processing tasks are delegated to ECS Fargate, while artificial intelligence is handled by Amazon Bedrock.
 
-![IoT Weather Platform Architecture](https://raw.githubusercontent.com/quan-chu/fcj-workshop-template/main/static/images/2-Proposal/platform_architecture.jpeg)
+#### AWS Services
 
-*Note: You should replace these image links with local assets in `public/images/`.*
+| Service | Role |
 
-### AWS Services Used
-- **AWS IoT Core**: Ingests MQTT data from 5 stations, scalable to 15.
-- **AWS Lambda**: Processes data and triggers Glue jobs (two functions).
-- **Amazon API Gateway**: Facilitates web app communication.
-- **Amazon S3**: Stores raw data in a data lake and processed outputs (two buckets).
-- **AWS Glue**: Crawlers catalog data, and ETL jobs transform and load it.
-- **AWS Amplify**: Hosts the Next.js web interface.
-- **Amazon Cognito**: Secures access for lab users.
+|---------|---------|
 
-### Component Design
-- **Edge Devices**: Raspberry Pi collects and filters sensor data, sending it to IoT Core.
-- **Data Ingestion**: AWS IoT Core receives MQTT messages from the edge devices.
-- **Data Storage**: Raw data is stored in an S3 data lake; processed data is stored in another S3 bucket.
-- **Data Processing**: AWS Glue Crawlers catalog the data, and ETL jobs transform it for analysis.
-- **Web Interface**: AWS Amplify hosts a Next.js app for real-time dashboards and analytics.
-- **User Management**: Amazon Cognito manages user access, allowing up to 5 active accounts.
+| **AWS Amplify Gen 2** | Infrastructure orchestration using TypeScript CDK, CI/CD pipeline management, and 3 decoupled environments |
+
+| **AWS AppSync** | GraphQL API with real-time subscriptions and owner-based authorization |
+
+| **AWS Lambda** | 5 logic functions: `ai-engine`, `scan-image`, `process-nutrition`, `friend-request`, `resize-image` |
+| **Amazon DynamoDB** | 6 NoSQL tables: `user`, `Food`, `FoodLog`, `FridgeItem`, `Friendship`, `UserPublicStats` |
+
+| **Amazon Bedrock** | Qwen3-VL 235B (ap-southeast-2) handles 9 AI tasks (Vision, NLP, Coaching) |
+
+| **AWS Transcribe** | Converts voice recordings (.m4a) from S3 to text for food processing |
+
+| **Amazon S3** | Partitioned media storage: `incoming/` (temp), `voice/`, `avatar/`, `media/` (permanent) |
+
+| **Amazon Cognito** | Centralized authentication: Email/OTP and Google OAuth2 federation |
+
+| **Amazon ECS Fargate** | Runs FastAPI backend in VPC for high-intensity Vision AI processing |
+
+| **AWS CloudWatch** | Centralized monitoring with Custom Metrics and Budget Alerts |
+
+| **AWS Secrets Manager** | Secure API Keys for ECS and Bedrock Model IDs |
+
+#### Specific Engineering Design
+
+**Hybrid AI Processing** — The system prioritizes fuzzy match queries from the local database before fallback to Bedrock AI to ensure speed and cost savings.
+
+**VPC Optimization** — The Lambda `scan-image` function is placed outside the VPC to connect directly to S3 and Bedrock, reducing latency by 90% and completely eliminating NAT Gateway costs for AI tasks.
+
+**AI Engine (9 Tasks)** — The central coordinating brain:
+
+- `analyzeFoodImage`: Analyzes food images directly.
+- `voiceToFood`: Converts speech to nutritional data.
+- `generateCoachResponse`: Responds to Coach Ollie's conversation.
+- `generateFood`: Generates data for a non-food item.
+Included in the database.
+- `calculateMacros`: Calculates calorie targets based on body mass index.
+- And other tasks such as: `fixFood`, `ollieCoachTip`, `generateRecipe`, `weeklyInsight`.
+
+---
 
 ### 4. Technical Implementation
-**Implementation Phases**
-This project has two parts—setting up weather edge stations and building the weather platform—each following 4 phases:
-1. **Build Theory and Draw Architecture**: Research Raspberry Pi setup with ESP32 sensors and design the AWS serverless architecture (1 month pre-internship)
-2. **Calculate Price and Check Practicality**: Use AWS Pricing Calculator to estimate costs and adjust if needed (Month 1).
-3. **Fix Architecture for Cost or Solution Fit**: Tweak the design (e.g., optimize Lambda with Next.js) to stay cost-effective and usable (Month 2).
-4. **Develop, Test, and Deploy**: Code the Raspberry Pi setup, AWS services with CDK/SDK, and Next.js app, then test and release to production (Months 2-3).
 
-**Technical Requirements**
-- **Weather Edge Station**: Sensors (temperature, humidity, rainfall, wind speed), a microcontroller (ESP32), and a Raspberry Pi as the edge device. Raspberry Pi runs Raspbian, handles Docker for filtering, and sends 1 MB/day per station via MQTT over Wi-Fi.
-- **Weather Platform**: Practical knowledge of AWS Amplify (hosting Next.js), Lambda (minimal use due to Next.js), AWS Glue (ETL), S3 (two buckets), IoT Core (gateway and rules), and Cognito (5 users). Use AWS CDK/SDK to code interactions (e.g., IoT Core rules to S3). Next.js reduces Lambda workload for the fullstack web app.
+#### Technologies Used
 
-### 5. Timeline & Milestones
-**Project Timeline**
-- Pre-Internship (Month 0): 1 month for planning and old station review.
-- Internship (Months 1-3): 3 months.
-    - Month 1: Study AWS and upgrade hardware.
-    - Month 2: Design and adjust architecture.
-    - Month 3: Implement, test, and launch.
-- Post-Launch: Up to 1 year for research.
+- **Frontend:** React Native, Expo Router, TypeScript, Zustand (State), i18n.
 
-### 6. Budget Estimation
-You can find the budget estimation on the [AWS Pricing Calculator](https://calculator.aws/#/estimate?id=621f38b12a1ef026842ba2ddfe46ff936ed4ab01).  
+- **Backend:** Amplify Gen 2, AppSync, DynamoDB, Lambda (Node.js 22).
 
-### Infrastructure Costs
-- AWS Services:
-    - AWS Lambda: $0.00/month (1,000 requests, 512 MB storage).
-    - S3 Standard: $0.15/month (6 GB, 2,100 requests, 1 GB scanned).
-    - Data Transfer: $0.02/month (1 GB inbound, 1 GB outbound).
-    - AWS Amplify: $0.35/month (256 MB, 500 ms requests).
-    - Amazon API Gateway: $0.01/month (2,000 requests).
-    - AWS Glue ETL Jobs: $0.02/month (2 DPUs).
-    - AWS Glue Crawlers: $0.07/month (1 crawler).
-    - MQTT (IoT Core): $0.08/month (5 devices, 45,000 messages).
+- **AI/ML:** Bedrock (Qwen3-VL 235B), Transcribe, Vision AI on ECS Fargate.
 
-**Total:** $0.7/month, $8.40/12 months
+- **DevOps:** Automated CI/CD, CDK Escape Hatches to resolve Table Discovery errors.
 
-- Hardware: $265 one-time (Raspberry Pi 5 and sensors).
+#### Development Roadmap
 
-### 7. Risk Assessment
-#### Risk Matrix
-- Network Outages: Medium impact, medium probability.
-- Sensor Failures: High impact, low probability.
-- Cost Overruns: Medium impact, low probability.
+**Phase 1 — Infrastructure & Core**
+Design a 6-table schema, configure Cognito Auth, and build basic UI for data entry.
 
-#### Mitigation Strategies
-- Network: Local storage on Raspberry Pi with Docker.
-- Sensors: Regular checks and spares.
-- Cost: AWS budget alerts and optimization.
+**Phase 2 — AI & Voice Integration**
+Deploy `aiEngine` in conjunction with Transcribe and Bedrock. Optimize automatic image resizing flow via S3 triggers.
 
-#### Contingency Plans
-- Revert to manual methods if AWS fails.
-- Use CloudFormation for cost-related rollbacks.
+**Phase 3 — Social & Gamification**
+Build a friend system, leaderboards, and pet evolution logic (Minh Long Dragon) based on real-world movement sequences.
 
-### 8. Expected Outcomes
-**Technical Improvements:** 
-Real-time data and analytics replace manual processes.  
-Scalable to 10-15 stations.
-**Long-term Value:**
-1-year data foundation for AI research.  
-Reusable for future projects.
+**Phase 4 — Stabilization & Scaling**
+Handle Table Discovery bugs using CDK overrides, deploy production in the Sydney region (ap-southeast-2).
+
+---
+
+### 5. Schedule & Milestones (Dragon Journey)
+
+The gamification system is designed with a 180-day journey:
+
+- **Egg (Days 0-35)**: Starting state.
+
+- **Newborn (Days 36-71)**: Hatching stage.
+
+- **Teenager (Days 72-107)**: Size growth.
+
+- **Adult (Days 108-143)**: Peak energy.
+
+- **Legendary (Days 144+)**: Ultimate state with special privileges.
+
+---
+
+### 6. Risk Assessment & Handling
+
+| Risks | Handling Methods |
+
+|--------|----------|
+
+| **Table Discovery Error** | Inject the table name incorrectly via the Escape Hatches CDK (`addPropertyOverride`). |
+
+| **ESCENT AI Costs** | Set Budget Alert to $80 and cache search results in DynamoDB. |
+
+| **Hallucination (AI Error)** | Use Prompt Engineering with mandatory JSON Schema and allow manual editing. |
+
+| **VPC Latency** | Move Lambda AI processing outside the VPC (Public) to optimize bandwidth. |
+
+---
+
+### 7. Expected Results
+
+- **Performance**: Food posting time reduced from 3 minutes to 10 seconds thanks to AI.
+
+- **Accuracy**: Achieve 95% accuracy for Vietnamese dishes thanks to the advanced Vision AI model.
+
+- **Scalability**: Ready to handle 10,000+ users with near-zero maintenance costs when idle.
+
+---
+
+### 8. Next Steps
+
+- **Expanding the Vietnamese Dishes DB**: Aim to reach 1,000+ verified dishes by the end of the year. - **EAS Build for iOS**: Completed the application packaging pipeline for the App Store.
+
+- **Premium Package**: Launched advanced analytics features (Weekly Insights) to create sustainable revenue streams.
+
+Issue: Fallback to manual data entry or fuzzy matching on approximately 200 pre-loaded Vietnamese dishes.
+
+- When backend deployment fails: Rollback via CloudFormation/Amplify across 3 environments.
+
+- When Qwen3-VL costs escalate: Switch to Claude Haiku or Llama on Bedrock.
+
+---
+
+### 9. Expected Results
+
+#### Technical Improvements
+
+- Logging time reduced from approximately 3 minutes (manual entry) to approximately 10 seconds (AI via image/voice).
+
+- Serverless infrastructure ready to handle 10,000+ concurrent users with near-zero idle costs ($0.47/month for basic DynamoDB).
+
+- Hybrid AI strategy (DynamoDB fuzzy match + Bedrock AI backup) balances cost efficiency and data accuracy.
+
+#### Long-Term Value
+
+- Building a verified Vietnamese food database, naturally expanding through user and AI contributions — currently ~200 dishes and growing.
+
+- Reusable AI architecture patterns (prompt templates, Lambda orchestration, Bedrock integration) applicable to future health features.
+
+- Social platform with gamification (pet evolution, daily streaks, challenges) promotes daily usage habits and long-term user retention.
+
+---
+
+### 10. Next Steps
+
+**iOS Pipeline** — Migrating from Android-first MVP to iOS via EAS. Build cloud runners; activate macOS CI runner when user numbers are sufficient to offset costs.
+
+**Expanding the Vietnamese Dish Database** — From an initial ~200 seeded items, collect AI-generated entries (`source: "AI Generated"` → `verified: false`) for the review team; the goal is 1,000+ verified dishes after the first year.
+
+**Observability** — Connect 4 CloudWatch custom metrics to a centralized dashboard + set a Budget alarm at $80/month.
+
+**Fallback Bedrock Cross-Region** — If the Qwen3-VL capacity at `ap-southeast-2` is limited, add a backup route to Claude Haiku `us-east-1` to ensure SLA.

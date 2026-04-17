@@ -1,31 +1,43 @@
-# Dọn dẹp tài nguyên
+# Dọn dẹp
 
-#### Dọn dẹp tài nguyên
 
-Xin chúc mừng bạn đã hoàn thành xong lab này!
-Trong lab này, bạn đã học về các mô hình kiến trúc để truy cập Amazon S3 mà không sử dụng Public Internet.
+Sau khi hoàn thành workshop, việc dọn dẹp tài nguyên là bước tối quan trọng để tránh các chi phí phát sinh ngoài ý muốn từ AWS. Một số tài nguyên như NAT Instances và ALB sẽ tính phí theo giờ ngay cả khi không có lưu lượng truy cập.
 
-+ Bằng cách tạo Gateway endpoint, bạn đã cho phép giao tiếp trực tiếp giữa các tài nguyên EC2 và Amazon S3, mà không đi qua Internet Gateway.
-+ Bằng cách tạo Interface endpoint, bạn đã mở rộng kết nối S3 đến các tài nguyên chạy trên trung tâm dữ liệu trên chỗ của bạn thông qua AWS Site-to-Site VPN hoặc Direct Connect.
+> [!IMPORTANT]
+> Tổng chi phí duy trì các tài nguyên trong workshop này khoảng **$44/tháng**. Hãy thực hiện các bước dưới đây ngay khi bạn không còn nhu cầu thử nghiệm.
 
-#### Dọn dẹp
-1. Điều hướng đến Hosted Zones trên phía trái của bảng điều khiển Route 53. Nhấp vào tên của  s3.us-east-1.amazonaws.com zone. Nhấp vào Delete và xác nhận việc xóa bằng cách nhập từ khóa "delete".
+## Thứ tự dọn dẹp tài nguyên
 
-![hosted zone](/images/5-Workshop/5.6-Cleanup/delete-zone.png)
+Để tránh lỗi "Resource in use", bạn nên thực hiện việc xóa theo thứ tự từ lớp ứng dụng ra đến lớp hạ tầng mạng.
 
-2. Disassociate Route 53 Resolver Rule - myS3Rule from "VPC Onprem" and Delete it. 
+### 1. Lớp Ứng dụng & Compute (ECS & ALB)
 
-![hosted zone](/images/5-Workshop/5.6-Cleanup/vpc.png)
+1. **ECS Service**: Vào ECS Cluster -> chọn Service `nutritrack-api-service` -> nhấn **Delete**. Đợi cho các Task dừng hẳn.
+2. **ECS Cluster**: Sau khi Service đã xóa xong, bạn có thể xóa Cluster.
+3. **Application Load Balancer (ALB)**: Vào phần EC2 -> Load Balancers -> Chọn ALB của workshop -> **Actions** -> **Delete**.
+4. **Target Group**: Xóa Target Group tương ứng của ALB.
 
-3. Mở console của CloudFormation và xóa hai stack CloudFormation mà bạn đã tạo cho bài thực hành này:
-+ PLOnpremSetup
-+ PLCloudSetup
+### 2. Lớp Hạ tầng Mạng (VPC & NAT)
 
-![delete stack](/images/5-Workshop/5.6-Cleanup/delete-stack.png)
+1. **NAT Instances**: Vào EC2 Console -> Instances -> Chọn các NAT Instance -> **Terminate instance**.
+2. **VPC**: Vào VPC Console -> Your VPCs -> Chọn `nutritrack-api-vpc` -> **Actions** -> **Delete VPC**. 
+    - *Lưu ý: AWS sẽ tự động xóa Subnets, Internet Gateways, và Route Tables đi kèm.*
 
-4. Xóa các S3 bucket
+### 3. Lớp Backend & Lưu trữ (Amplify & S3)
 
-+ Mở bảng điều khiển S3
-+ Chọn bucket chúng ta đã tạo cho lab, nhấp chuột và xác nhận là empty. Nhấp Delete và xác nhận delete.
+1. **AWS Amplify**: Vào Amplify Console -> Chọn ứng dụng NutriTrack -> **Actions** -> **Delete app**. Việc này sẽ xóa toàn bộ Resources đi kèm (Cognito, DynamoDB, AppSync).
+2. **S3 Bucket**: Vào S3 Console -> Tìm bucket cache (`nutritrack-cache-xxxx`). Bạn phải **Empty** (Làm trống) bucket trước khi có thể **Delete** (Xóa).
+3. **Secrets Manager**: Vào Secrets Manager -> Chọn secret chứa API Keys -> **Delete secret**. (Lưu ý AWS mặc định sẽ giữ secret 7-30 ngày trước khi xóa hẳn).
 
-![delete s3](/images/5-Workshop/5.6-Cleanup/delete-s3.png)
+### 4. IAM & CloudWatch
+
+1. **IAM Roles**: Xóa các Role đã tạo thủ công như `ecsTaskRole`, `ecsTaskExecutionRole` nếu bạn không còn dùng cho dự án khác.
+2. **CloudWatch Logs**: Xóa các Log Groups (`/ecs/nutritrack-api`) để làm sạch giao diện quản lý.
+
+---
+
+Chúc mừng bạn đã hoàn thành trọn vẹn workshop triển khai hệ thống NutriTrack trên AWS! Hy vọng những kiến thức về Hybrid Architecture (Serverless + Container) và tối ưu hóa chi phí mạng sẽ giúp ích cho các dự án thực tế của bạn.
+
+[Quay lại trang chủ](../../)
+
+

@@ -1,12 +1,41 @@
-# Introduction
+# Overview
 
-#### VPC endpoints
-+ **VPC endpoints** are virtual devices. They are horizontally scaled, redundant, and highly available VPC components. They allow communication between your compute resources and AWS services without imposing availability risks.
-+ Compute resources running in VPC can access  **Amazon S3**  using a Gateway endpoint. PrivateLink interface endpoints can be used by compute resources running in VPC or on-premises.
 
-#### Workshop overview
-In this workshop, we will use two VPCs. 
-+ **"VPC Cloud"** is for cloud resources such as a  **Gateway endpoint** and an EC2 instance to test with. 
-+ **"VPC On-Prem"** simulates an on-premises environment such as a factory or corporate datacenter. An EC2 instance running strongSwan VPN software has been deployed in "VPC On-prem" and automatically configured to establish a Site-to-Site VPN tunnel with AWS Transit Gateway. This VPN simulates connectivity from an on-premises location to the AWS cloud. To minimize costs, only one VPN instance is provisioned to support this workshop. When planning VPN connectivity for your production workloads, AWS recommends using multiple VPN devices for high availability.
+## Introduction
+This workshop is designed to guide you through the process of building and deploying **NutriTrack** — a modern nutrition tracking platform that combines the power of **AWS Amplify Gen 2**, **Amazon Bedrock**, and **Amazon ECS Fargate**. Based 100% on a real-world production codebase, this workshop will help you master serverless infrastructure and explore how to optimally integrate high-performance AI tasks into practical applications.
 
-![overview](/images/5-Workshop/5.1-Workshop-overview/diagram1.png)
+## Overall Architecture
+
+![NutriTrack Architecture](/images/architect.jpg)
+
+## Infrastructure Summary
+
+Here are the key components you will deploy throughout the Workshop:
+
+### 1. Database (Amazon DynamoDB)
+| Table Name | Primary Function | Notes |
+| :--- | :--- | :--- |
+| **`Food`** | Food & Nutrition Catalog | Contains Macro/Micro-nutrient data for foods. |
+| **`user`** | User Profile | Stores height, weight, and calorie goals. |
+| **`FoodLog`** | Consumption Diary | Meal history and intake nutrition metrics. |
+| **`FridgeItem`** | Inventory Management | Tracks stock in the refrigerator. |
+| **`Friendship`** | Social System | Manages friend requests and connections. |
+| **`UserPublicStats`** | Public Metrics | Stores Streak and Pet Level for social viewing. |
+
+### 2. Logic Layer (AWS Lambda Functions)
+1. **`ai-engine`**: The "brain" that invokes Bedrock (AI) and coordinates Transcribe.
+2. **`scan-image`**: Connects to ECS Fargate for specialized image analysis.
+3. **`process-nutrition`**: Calculates nutrition data and handles AI fallback logic.
+4. **`friend-request`**: Handles friendship and social interaction logic.
+5. **`resize-image`**: Automatically optimizes images upon S3 upload.
+
+### 3. AI Capabilities
+* **Voice Logging**: Converts Vietnamese speech to text to extract food entities.
+* **Photo Analysis**: Identifies components and estimates portions via images.
+* **AI Coach (Ollie)**: Provides personalized AI-driven nutrition advice.
+
+---
+
+[Continue to 5.2 Prerequisites](../5.2-Prerequiste/)
+
+

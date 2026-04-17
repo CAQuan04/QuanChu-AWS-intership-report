@@ -1,31 +1,25 @@
 # Self-Assessment
 
-> **Note:** The information below is for reference purposes only.
 
-During my internship at **[Company/Organization Name]** from **[start date]** to **[end date]**, I had the opportunity to learn, practice, and apply the knowledge acquired in school to a real-world working environment.  
-I participated in **[briefly describe the main project or task]**, through which I improved my skills in **[list skills: programming, analysis, reporting, communication, etc.]**.  
+Throughout my internship at **First Cloud Journey** (March - May 2026), I have successfully transitioned academic principles into professional cloud practices. Working within **Team NeuraX**, I contributed to real-world AWS projects, refining my technical acumen and operational efficiency.
 
-In terms of work ethic, I always strived to complete tasks well, complied with workplace regulations, and actively engaged with colleagues to improve work efficiency.
+To summarize my progress, I have evaluated my performance against these 11 core criteria:
 
-To objectively reflect on my internship period, I would like to evaluate myself based on the following criteria:
+| No. | Evaluation Criteria | Description | Good | Fair | Average |
+|-----|---------------------|-------------|:----:|:----:|:-------:|
+| 1 | Expertise & Technical Skills | Comprehension of the cloud domain, practical deployment of solutions, and output quality | | ✅ | |
+| 2 | Learning Agility | Speed and efficiency in grasping new technical concepts and methodologies | | ✅ | |
+| 3 | Initiative & Proactiveness | Self-driven task identification and taking ownership without constant supervision | ✅ | | |
+| 4 | Accountability | Dedication to meeting project goals on schedule and maintaining high delivery standards | ✅ | | |
+| 5 | Operational Discipline | Strict adherence to organizational guidelines, shift schedules, and defined workflows | ✅ | | |
+| 6 | Growth Mindset | Receptiveness to peer feedback and a continuous drive for personal professional development | | ✅ | |
+| 7 | Effective Communication | Clarity in presenting technical ideas and consistency in progress reporting | | ✅ | |
+| 8 | Collaborative Teamwork | Synergizing with colleagues to achieve shared milestones and fostering a positive environment | ✅ | | |
+| 9 | Professional Conduct | Maintaining ethical standards and mutual respect towards partners and teammates | | ✅ | |
+| 10 | Problem-Solving Capacity | Analytical approach to diagnosing issues and proposing innovative technical solutions | ✅ | | |
+| 11 | Project Contribution | Overall impact on team goals, innovative suggestions, and recognition from mentors | ✅ | | |
 
-| No. | Criteria | Description | Good | Fair | Average |
-| --- | --- | --- | --- | --- | --- |
-| 1 | **Professional knowledge & skills** | Understanding of the field, applying knowledge in practice, proficiency with tools, work quality | ✅ | ☐ | ☐ |
-| 2 | **Ability to learn** | Ability to absorb new knowledge and learn quickly | ☐ | ✅ | ☐ |
-| 3 | **Proactiveness** | Taking initiative, seeking out tasks without waiting for instructions | ✅ | ☐ | ☐ |
-| 4 | **Sense of responsibility** | Completing tasks on time and ensuring quality | ✅ | ☐ | ☐ |
-| 5 | **Discipline** | Adhering to schedules, rules, and work processes | ☐ | ☐ | ✅ |
-| 6 | **Progressive mindset** | Willingness to receive feedback and improve oneself | ☐ | ✅ | ☐ |
-| 7 | **Communication** | Presenting ideas and reporting work clearly | ☐ | ✅ | ☐ |
-| 8 | **Teamwork** | Working effectively with colleagues and participating in teams | ✅ | ☐ | ☐ |
-| 9 | **Professional conduct** | Respecting colleagues, partners, and the work environment | ✅ | ☐ | ☐ |
-| 10 | **Problem-solving skills** | Identifying problems, proposing solutions, and showing creativity | ☐ | ✅ | ☐ |
-| 11 | **Contribution to project/team** | Work effectiveness, innovative ideas, recognition from the team | ✅ | ☐ | ☐ |
-| 12 | **Overall** | General evaluation of the entire internship period | ✅ | ☐ | ☐ |
-
-### Needs Improvement
-
-* Strengthen discipline and strictly comply with the rules and regulations of the company or any organization  
-* Improve problem-solving thinking  
-* Enhance communication skills in both daily interactions and professional contexts, including handling situations effectively
+### Personal Development Goals
+- **Self-Discipline**: Aiming for stricter compliance with corporate protocols and internal team regulations.
+- **Analytical Thinking**: Enhancing my capacity for deep-dive technical research and complex system logic.
+- **Interpersonal Skills**: Refining the art of professional interaction and situational handling in a corporate tech environment.

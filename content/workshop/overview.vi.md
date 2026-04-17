@@ -1,13 +1,41 @@
-# Giới thiệu
+# Tổng quan
 
-#### Giới thiệu về VPC Endpoint
 
-+ Điểm cuối VPC (endpoint) là thiết bị ảo. Chúng là các thành phần VPC có thể mở rộng theo chiều ngang, dự phòng và có tính sẵn sàng cao. Chúng cho phép giao tiếp giữa tài nguyên điện toán của bạn và dịch vụ AWS mà không gây ra rủi ro về tính sẵn sàng.
-+ Tài nguyên điện toán đang chạy trong VPC có thể truy cập Amazon S3 bằng cách sử dụng điểm cuối Gateway. Interface Endpoint  PrivateLink có thể được sử dụng bởi tài nguyên chạy trong VPC hoặc tại TTDL.
+## Giới thiệu 
+Workshop này được thiết kế để dẫn dắt bạn qua quy trình xây dựng và triển khai **NutriTrack** — một nền tảng theo dõi dinh dưỡng hiện đại, hội tụ sức mạnh của **AWS Amplify Gen 2**, **Amazon Bedrock** và **Amazon ECS Fargate**. Với nội dung bám sát 100% vào codebase thực tế đang vận hành, workshop không chỉ giúp bạn làm chủ hạ tầng serverless mà còn khai phá cách tích hợp các tác vụ AI hiệu năng cao vào ứng dụng thực tiễn một cách tối ưu.
 
-#### Tổng quan về workshop
-Trong workshop này, bạn sẽ sử dụng hai VPC.
-+ **"VPC Cloud"** dành cho các tài nguyên cloud như Gateway endpoint và EC2 instance để kiểm tra.
-+ **"VPC On-Prem"** mô phỏng môi trường truyền thống như nhà máy hoặc trung tâm dữ liệu của công ty. Một EC2 Instance chạy phần mềm StrongSwan VPN đã được triển khai trong "VPC On-prem" và được cấu hình tự động để thiết lập đường hầm VPN Site-to-Site với AWS Transit Gateway. VPN này mô phỏng kết nối từ một vị trí tại TTDL (on-prem) với AWS cloud. Để giảm thiểu chi phí, chỉ một phiên bản VPN được cung cấp để hỗ trợ workshop này. Khi lập kế hoạch kết nối VPN cho production workloads của bạn, AWS khuyên bạn nên sử dụng nhiều thiết bị VPN để có tính sẵn sàng cao.
+## Kiến trúc Tổng thể
 
-![overview](/images/5-Workshop/5.1-Workshop-overview/diagram1.png)
+![Kiến trúc NutriTrack](/images/architect.jpg)
+
+## Tóm tắt Hạ tầng Backend
+
+Đây là các thành phần chính mà bạn sẽ triển khai trong suốt Workshop:
+
+### 1. Cơ sở dữ liệu (Database - DynamoDB)
+| Tên Table | Chức năng chính | Ghi chú |
+| :--- | :--- | :--- |
+| **`Food`** | Danh mục thực phẩm & Dinh dưỡng | Chứa thông tin Macro/Micro của thực phẩm. |
+| **`user`** | Hồ sơ người dùng | Lưu trữ chiều cao, cân nặng, mục tiêu calo. |
+| **`FoodLog`** | Nhật ký ăn uống | Lịch sử bữa ăn và chỉ số dinh dưỡng đã nạp. |
+| **`FridgeItem`** | Quản lý tủ lạnh | Theo dõi thực phẩm tồn kho. |
+| **`Friendship`** | Hệ thống mạng xã hội | Quản lý lời mời kết bạn. |
+| **`UserPublicStats`** | Chỉ số công khai | Lưu trữ Streak, Pet Level để bạn bè xem. |
+
+### 2. Các hàm xử lý (Lambda Functions)
+1. **`ai-engine`**: "Bộ não" gọi Bedrock (AI) và điều phối Transcribe.
+2. **`scan-image`**: Kết nối với ECS Fargate để phân tích hình ảnh.
+3. **`process-nutrition`**: Tính toán dinh dưỡng và xử lý fallback AI.
+4. **`friend-request`**: Xử lý logic kết bạn.
+5. **`resize-image`**: Tự động tối ưu ảnh khi tải lên S3.
+
+### 3. Khả năng của AI (AI Capabilities)
+* **Voice Logging**: Chuyển giọng nói tiếng Việt thành văn bản để bóc tách món ăn.
+* **Photo Analysis**: Nhận diện thành phần và ước lượng khối lượng qua ảnh.
+* **AI Coach (Ollie)**: Tư vấn dinh dưỡng cá nhân hóa.
+
+---
+
+[Tiếp tục đến 5.2 Điều kiện tiên quyết](../5.2-Prerequiste/)
+
+

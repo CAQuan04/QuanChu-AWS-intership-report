@@ -1,45 +1,44 @@
-# TUẦN 1 — Định hướng & Các dịch vụ cơ bản của AWS
+# Nhật ký công việc tuần 1
 
-**Thời gian:** 05/01/2025 - 09/01/2025
 
----
+### Mục tiêu tuần 1:
 
-### MỤC TIÊU TUẦN 1
 
-- Hoàn tất thủ tục tiếp nhận và hòa nhập với team First Cloud Journey.
-- Thiết lập tài khoản AWS và môi trường thực hành.
-- Nắm vững các khái niệm cơ bản về AWS Cloud và Global Infrastructure.
-- Thực hành các bài Lab cơ bản về IAM, VPC, EC2 và Quản lý chi phí.
+* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
+* Hiểu dịch vụ AWS cơ bản
 
----
+### Các công việc cần triển khai trong tuần này:
+| Thứ | Công việc| Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu|
+| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
+| 2   | - Kick off tại doanh nghiệp <br> - Hiểu rõ hơn về văn hóa công ty, cách làm việc và học tập hiệu quả <br> - Hiểu rõ các quy tắc doanh nghiệp trong quá trình làm việc <br> - Lập nhóm| 05/01/2026   | 05/01/2026      |
+| 3   | - Tìm hiểu về các dịch vụ của AWS <br>&emsp; + EC2 <br>&emsp; + S3 <br>&emsp; + Networking <br>&emsp; + Database | 06/01/2026 | 06/01/2026 | <https://cloudjourney.awsstudygroup.com/><br><https://www.udemy.com/course/vo-long-ve-amazon-web-services/> |
+| 4   | - Thực hành vẽ Diagrams trên draw.io theo video hướng dẫn | 07/01/2026 | 07/01/2026 | <https://www.youtube.com/watch?v=l8isyDe-GwY> |
+| 5   | - Meeting: Tìm hiểu rõ về điểm mạnh và điểm yếu của từng thành viên, thống nhất cách làm việc trong quá trình học tập và làm dự án tại AWS| 08/01/2026 | 08/01/2026 |
+| 6   | - Workshop AWS: tạo trang Web blog cá nhân | 09/01/2026 | 09/01/2026 | <https://www.youtube.com/watch?v=l8isyDe-GwY>|
+| 7   | - Deploy trang web Workshop AWS lên github| 10/01/2026 | 10/01/2026 |
 
-### CHI TIẾT CÔNG VIỆC
+### Kết quả đạt được tuần 1:
 
-| Thứ | Hoạt động chính | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
-|-----|-----------------|--------------|-----------------|----------------|
-| **Thứ 2** | **Thiết lập tài khoản & Nghiên cứu tài liệu**<br>- Tạo tài khoản AWS mới.<br>- Đọc và nghiên cứu tài liệu hướng dẫn tại Cloud Journey.<br>- **Kết quả:** Đã tạo tài khoản thành công và nhận được $200 credit hỗ trợ. | 05/01/2025 | 05/01/2025 | [Cloud Journey](https://cloudjourney.awsstudygroup.com/) |
-| **Thứ 3** | **Họp Team & Lập kế hoạch**<br>- Tham gia họp cùng team tại công ty.<br>- Thảo luận và xây dựng kế hoạch làm việc.<br>- Chia sẻ kiến thức và định hướng với các thành viên. | 06/01/2025 | 06/01/2025 | Thảo luận nội bộ |
-| **Thứ 4** | **Thực hành Lab (6 bài cơ bản)**<br>- Managing Costs with AWS Budgets<br>- Getting Help with AWS Support<br>- Access Management with IAM<br>- Networking Essentials (VPC)<br>- Compute Essentials (EC2)<br>- Instance Profiling with IAM Roles | 07/01/2025 | 07/01/2025 | [Cloud Journey](https://cloudjourney.awsstudygroup.com/) |
-| **Thứ 5** | **Xây dựng Đề cương Báo cáo**<br>- Lên ý tưởng và cấu trúc (Layout) cho Báo cáo thực tập AWS (Internship Report).<br>- Viết Proposal chi tiết cho dự án. | 08/01/2025 | 08/01/2025 | Tài liệu cá nhân |
-| **Thứ 6** | **Học & Thực hành Kiến thức nền tảng**<br>- Basics of Cloud and AWS.<br>- AWS Global Infrastructure (Regions, AZs, Edge Locations).<br>- Groups, Roles và Policies trong IAM.<br>- Thiết lập kiến trúc AWS đơn giản (Subnet, Security Group, EC2, RDS). | 09/01/2025 | 09/01/2025 | [AWS Documentation](https://docs.aws.amazon.com/) |
+- Hoàn thành **buổi kick-off tại doanh nghiệp**, nắm rõ:
+  - Văn hóa làm việc
+  - Quy trình học tập và phối hợp nhóm
+  - Các quy định cần tuân thủ trong quá trình thực tập tại AWS
 
----
+- **Thành lập nhóm làm việc**, phân công vai trò bước đầu và thống nhất phương thức trao đổi, báo cáo tiến độ.
 
-### KẾT QUẢ ĐẠT ĐƯỢC
+- Nắm được **kiến thức tổng quan về các dịch vụ cốt lõi của AWS**, bao gồm:
+  - EC2: khái niệm máy chủ ảo và cách sử dụng cơ bản
+  - S3: lưu trữ đối tượng và các ứng dụng phổ biến
+  - Networking: kiến thức nền tảng về mạng trong AWS
 
-**1. Môi trường thực hành:**
-- Đã kích hoạt thành công tài khoản AWS Free Tier và nhận gói credit $200.
-- Hiểu quy trình đăng ký và thiết lập Billing Alarm cơ bản.
+- **Thực hành vẽ kiến trúc hệ thống trên draw.io**, hiểu cách biểu diễn:
+  - Các thành phần AWS
+  - Luồng dữ liệu trong hệ thống
+  - Kiến trúc cơ bản của một ứng dụng cloud
 
-**2. Kiến thức kỹ thuật:**
-- **Cloud Basics:** Nắm vững mô hình Shared Responsibility, các lợi ích của Cloud Computing.
-- **Infrastructure:** Hiểu rõ về AWS Global Infrastructure và cách lựa chọn Region phù hợp.
-- **IAM (Identity and Access Management):** Hiểu cơ chế phân quyền qua Users, Groups, Roles và Policies.
+- **Deploy thành công trang web workshop lên GitHub**, làm quen với:
+  - Quy trình quản lý source code
+  - Publish website bằng GitHub Pages
 
-**3. Kỹ năng thực hành:**
-- Hoàn thành xuất sắc 6 bài Lab nhập môn.
-- Có khả năng triển khai một kiến trúc đơn giản bao gồm: VPC, Subnet, Security Group, EC2 instance và RDS database.
-- Biết cách sử dụng AWS Budgets để giám sát chi phí.
+- Bước đầu hình thành **workflow làm việc nhóm**, sẵn sàng cho các bài lab và dự án phức tạp hơn trong các tuần tiếp theo.
 
-**4. Tài liệu:**
-- Hoàn thiện bản Proposal cho Báo cáo thực tập, định hình rõ cấu trúc và nội dung sẽ thực hiện.

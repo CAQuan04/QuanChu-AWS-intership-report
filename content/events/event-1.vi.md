@@ -1,116 +1,41 @@
-# Bài thu hoạch “GenAI-powered App-DB Modernization workshop”
+# AWS re:Invent 2025 Recap - Hạ tầng & Bảo mật
 
-> **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn.
 
-### Mục Đích Của Sự Kiện
+**Ngày:** 27 tháng 1, 2026
+**Địa điểm:** Văn phòng AWS Việt Nam (Tầng 26 & 36), TP. Hồ Chí Minh
+**Vai trò:** Người tham dự (FCJ Cloud Intern - Team NeuraX)
 
-- Chia sẻ best practices trong thiết kế ứng dụng hiện đại
-- Giới thiệu phương pháp DDD và event-driven architecture
-- Hướng dẫn lựa chọn compute services phù hợp
-- Giới thiệu công cụ AI hỗ trợ development lifecycle
+## Mô tả sự kiện
 
-### Danh Sách Diễn Giả
+Sự kiện này là buổi tổng kết toàn diện về các cập nhật hạ tầng và bảo mật quan trọng nhất từ AWS re:Invent 2024. Buổi chia sẻ quy tụ các kiến trúc sư đám mây và chuyên gia bảo mật để tìm hiểu về các đổi mới trong thiết kế chip silicon, điện toán serverless và các hoạt động bảo mật được hỗ trợ bởi AI trực tiếp từ các chuyên gia AWS.
 
-- **Jignesh Shah** - Director, Open Source Databases
-- **Erica Liu** - Sr. GTM Specialist, AppMod
-- **Fabrianne Effendi** - Assc. Specialist SA, Serverless Amazon Web Services
+## Các hoạt động chính
 
-### Nội Dung Nổi Bật
+Sự kiện tập trung vào các chủ đề kỹ thuật then chốt với các chi tiết kỹ thuật được trích xuất từ các phiên thảo luận chuyên sâu của AWS:
 
-#### Đưa ra các ảnh hưởng tiêu cực của kiến trúc ứng dụng cũ
+**Tính toán thế hệ mới & Silicon**  
+Giới thiệu **AWS Graviton5**, sở hữu **192 lõi trên mỗi chip** và **bộ nhớ đệm (cache) lớn gấp 5 lần** so với Graviton4. Các phiên bản **Amazon EC2 M9g** mới chạy trên nền chip này cung cấp hiệu năng giá tốt hơn tới **25%** cho các tải công việc thông thường. Đối với các tác vụ AI chuyên biệt, **Trainium3 UltraServers** đã được ra mắt (hiện có sẵn tại US East/West), được thiết kế để tăng tốc huấn luyện các mô hình với hàng nghìn tỷ tham số trong khi giảm đáng kể chi phí trên mỗi token.
 
-- Thời gian release sản phẩm lâu → Mất doanh thu/bỏ lỡ cơ hội
-- Hoạt động kém hiệu quả → Mất năng suất, tốn kém chi phí
-- Không tuân thủ các quy định về bảo mật → Mất an ninh, uy tín
+**Sự tiến hóa của Serverless**  
+Khám phá **AWS Lambda Managed Instances**, giúp xóa nhòa ranh giới giữa sự đơn giản của serverless và tính linh hoạt của EC2, cho phép các hàm chạy trên phần cứng chuyên dụng với toàn quyền kiểm soát VPC. Một điểm nhấn quan trọng là **AWS Lambda Durable Functions**, giới thiệu cơ chế **durable execution** (thực thi bền bỉ) sử dụng checkpoint và replay. Lập trình viên có thể sử dụng các hàm gốc `context.step()` và `context.wait()` để xây dựng các luồng công việc có thể **tạm dừng thực thi lên đến một năm** mà không phải trả phí cho thời gian chờ, lý tưởng cho các quy trình chờ phê duyệt từ con người hoặc phản hồi AI dài ngày.
 
-#### Chuyển đổi sang kiến trúc ứng dụng mới - Microservice Architecture
+**Hạ tầng dữ liệu hiệu năng cao**  
+Đi sâu vào **Amazon S3 Vectors** (hiện đã GA), hỗ trợ tới **1 tỷ vector mỗi index** và sử dụng thuật toán **HNSW (Hierarchical Navigable Small World)** cho độ trễ truy vấn dưới 100ms. Khả năng gốc này của S3 giúp giảm tổng chi phí sở hữu lên tới **90%** so với việc vận hành các cơ sở dữ liệu vector chuyên biệt. Ngoài ra, **Amazon S3 Tables** hiện đã hỗ trợ **replication liên vùng** và **Intelligent-Tiering**, tự động di chuyển dữ liệu giữa các tầng nóng (Express One Zone) và lạnh (Standard) dựa trên mức độ truy cập. S3 Tables cũng tích hợp sẵn các tính năng bảo trì như **nén file (compaction)** và **snapshot expiration** để đảm bảo hiệu suất ổn định.
 
-Chuyển đổi thành hệ thống modular – từng chức năng là một **dịch vụ độc lập** giao tiếp với nhau qua **sự kiện** với 3 trụ cột cốt lõi:
+**Hoạt động bảo mật dựa trên AI**  
+Bản xem trước về **AWS Security Agent**, cho phép các đội ngũ mở rộng chuyên môn AppSec bằng cách sử dụng LLM. Công cụ này thực hiện các bản **đánh giá thiết kế dựa trên AI** bằng cách phân tích sơ đồ kiến trúc và **phân tích mã nguồn chuyên sâu** để tìm ra các lỗi logic phức tạp vượt ra ngoài danh mục OWASP Top 10. Một tính năng nổi bật là **kiểm thử xâm nhập theo ngữ cảnh (contextual penetration testing)**, trong đó agent tạo ra và thực thi các kịch bản khai thác an toàn trong một môi trường sandbox để xác tin các lỗ hổng trước khi triển khai. **AWS Security Hub** cũng đã chính thức khả dụng rộng rãi (GA) với khả năng phân tích gần như thời gian thực và ưu tiên rủi ro dựa trên các phát hiện trên toàn bộ tài khoản AWS.
 
-- **Queue Management**: Xử lý tác vụ bất đồng bộ
-- **Caching Strategy:** Tối ưu performance
-- **Message Handling:** Giao tiếp linh hoạt giữa services
+**Hạ tầng toàn cầu & Mạng an toàn**  
+Giới thiệu **AWS AI Factories**, cho phép các tổ chức triển khai hạ tầng AI được quản lý hoàn chỉnh (bao gồm phần cứng chuyên dụng và các mô hình tích hợp sẵn) ngay tại trung tâm dữ liệu của họ để đáp ứng các yêu cầu về lưu giữ dữ liệu. Về kết nối hybrid, **Amazon Route 53 Global Resolver** (preview) đã được giới thiệu, sử dụng **phân giải dựa trên anycast an toàn** để quản lý DNS thống nhất cho cả tên miền công cộng và nội bộ, giảm bớt nhu cầu cho các kiến trúc DNS hybrid phức tạp và các quy tắc chuyển tiếp thủ công.
 
-#### Domain-Driven Design (DDD)
+## Kết quả
 
-- **Phương pháp 4 bước**: Xác định domain events → sắp xếp timeline → identify actors → xác định bounded contexts
-- **Case study bookstore**: Minh họa cách áp dụng DDD thực tế
-- **Context mapping**: 7 patterns tích hợp bounded contexts
+- **Graviton5 & Trainium3**: Thiết yếu để mở rộng quy mô tải công việc AI một cách hiệu quả với 192 lõi và hiệu năng tốt hơn 25%.
+- **Lambda Durable Functions**: Đơn giản hóa các luồng công việc dài ngày với quản lý trạng thái nội tại và thời gian tạm dừng lên tới 1 năm.
+- **S3 Vectors & Tables**: Cung cấp nền tảng vững chắc và tiết kiệm chi phí cho các ứng dụng RAG khổng lồ với các tính năng bảo trì tự động và tiết kiệm 90% chi phí.
+- **AWS Security Agent**: Chủ động bảo vệ ứng dụng thông qua kiểm thử xâm nhập và đánh giá thiết kế tự động trong suốt vòng đời phát triển.
+- **Route 53 Global Resolver & AI Factories**: Giải quyết các nhu cầu phức tạp về đám mây lai và chủ quyền dữ liệu với phân giải anycast và hạ tầng AI quản lý on-premises.
+- Xác định tiềm năng sử dụng **S3 Tables và GuardDuty** để tăng cường bảo mật dữ liệu và khả năng quan sát vận hành cho dự án NutriTrack.
 
-#### Event-Driven Architecture
-
-- **3 patterns tích hợp**: Publish/Subscribe, Point-to-point, Streaming
-- **Lợi ích**: Loose coupling, scalability, resilience
-- **So sánh sync vs async**: Hiểu rõ trade-offs (sự đánh đổi)
-
-#### Compute Evolution
-
-- **Shared Responsibility Model**: Từ EC2 → ECS → Fargate → Lambda
-- **Serverless benefits**: No server management, auto-scaling, pay-for-value
-- **Functions vs Containers**: Criteria lựa chọn phù hợp
-
-#### Amazon Q Developer
-
-- **SDLC automation**: Từ planning đến maintenance
-- **Code transformation**: Java upgrade, .NET modernization
-- **AWS Transform agents**: VMware, Mainframe, .NET migration
-
-### Những Gì Học Được
-
-#### Tư Duy Thiết Kế
-
-- **Business-first approach**: Luôn bắt đầu từ business domain, không phải technology
-- **Ubiquitous language**: Importance của common vocabulary giữa business và tech teams
-- **Bounded contexts**: Cách identify và manage complexity trong large systems
-
-#### Kiến Trúc Kỹ Thuật
-
-- **Event storming technique**: Phương pháp thực tế để mô hình hóa quy trình kinh doanh
-- Sử dụng **Event-driven communication** thay vì synchronous calls
-- **Integration patterns**: Hiểu khi nào dùng sync, async, pub/sub, streaming
-- **Compute spectrum**: Criteria chọn từ VM → containers → serverless
-
-#### Chiến Lược Hiện Đại Hóa
-
-- **Phased approach**: Không rush, phải có roadmap rõ ràng
-- **7Rs framework**: Nhiều con đường khác nhau tùy thuộc vào đặc điểm của mỗi ứng dụng
-- **ROI measurement**: Cost reduction + business agility
-
-### Ứng Dụng Vào Công Việc
-
-- **Áp dụng DDD** cho project hiện tại: Event storming sessions với business team
-- **Refactor microservices**: Sử dụng bounded contexts để identify service boundaries
-- **Implement event-driven patterns**: Thay thế một số sync calls bằng async messaging
-- **Serverless adoption**: Pilot AWS Lambda cho một số use cases phù hợp
-- **Try Amazon Q Developer**: Integrate vào development workflow để boost productivity
-
-### Trải nghiệm trong event
-
-Tham gia workshop **“GenAI-powered App-DB Modernization”** là một trải nghiệm rất bổ ích, giúp tôi có cái nhìn toàn diện về cách hiện đại hóa ứng dụng và cơ sở dữ liệu bằng các phương pháp và công cụ hiện đại. Một số trải nghiệm nổi bật:
-
-#### Học hỏi từ các diễn giả có chuyên môn cao
-- Các diễn giả đến từ AWS và các tổ chức công nghệ lớn đã chia sẻ **best practices** trong thiết kế ứng dụng hiện đại.
-- Qua các case study thực tế, tôi hiểu rõ hơn cách áp dụng **Domain-Driven Design (DDD)** và **Event-Driven Architecture** vào các project lớn.
-
-#### Trải nghiệm kỹ thuật thực tế
-- Tham gia các phiên trình bày về **event storming** giúp tôi hình dung cách **mô hình hóa quy trình kinh doanh** thành các domain events.
-- Học cách **phân tách microservices** và xác định **bounded contexts** để quản lý sự phức tạp của hệ thống lớn.
-- Hiểu rõ trade-offs giữa **synchronous và asynchronous communication** cũng như các pattern tích hợp như **pub/sub, point-to-point, streaming**.
-
-#### Ứng dụng công cụ hiện đại
-- Trực tiếp tìm hiểu về **Amazon Q Developer**, công cụ AI hỗ trợ SDLC từ lập kế hoạch đến maintenance.
-- Học cách **tự động hóa code transformation** và pilot serverless với **AWS Lambda**, từ đó nâng cao năng suất phát triển.
-
-#### Kết nối và trao đổi
-- Workshop tạo cơ hội trao đổi trực tiếp với các chuyên gia, đồng nghiệp và team business, giúp **nâng cao ngôn ngữ chung (ubiquitous language)** giữa business và tech.
-- Qua các ví dụ thực tế, tôi nhận ra tầm quan trọng của **business-first approach**, luôn bắt đầu từ nhu cầu kinh doanh thay vì chỉ tập trung vào công nghệ.
-
-#### Bài học rút ra
-- Việc áp dụng DDD và event-driven patterns giúp giảm **coupling**, tăng **scalability** và **resilience** cho hệ thống.
-- Chiến lược hiện đại hóa cần **phased approach** và đo lường **ROI**, không nên vội vàng chuyển đổi toàn bộ hệ thống.
-- Các công cụ AI như Amazon Q Developer có thể **boost productivity** nếu được tích hợp vào workflow phát triển hiện tại.
-
-#### Một số hình ảnh khi tham gia sự kiện
-* Thêm các hình ảnh của các bạn tại đây
-
-> Tổng thể, sự kiện không chỉ cung cấp kiến thức kỹ thuật mà còn giúp tôi thay đổi cách tư duy về thiết kế ứng dụng, hiện đại hóa hệ thống và phối hợp hiệu quả hơn giữa các team.
+![1769703855906.jpg](/images/1769703855906.jpg)
+![1769703854680.jpg](/images/1769703854680.jpg)

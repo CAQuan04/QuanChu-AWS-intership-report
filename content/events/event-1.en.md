@@ -1,116 +1,41 @@
-# Summary Report: “GenAI-powered App-DB Modernization workshop”
+# AWS re:Invent 2025 Recap - Infrastructure & Security
 
-> **Note:** The information below is for reference purposes only.
 
-### Event Objectives
+**Date:** January 27, 2026
+**Location:** AWS Vietnam Office (Floor 26 & 36), Ho Chi Minh City
+**Role:** Attendee (FCJ Cloud Intern - Team NeuraX)
 
-- Share best practices in modern application design
-- Introduce Domain-Driven Design (DDD) and event-driven architecture
-- Provide guidance on selecting the right compute services
-- Present AI tools to support the development lifecycle
+## Event Description
 
-### Speakers
+This event was a comprehensive recap of the most important infrastructure and security updates from AWS re:Invent 2025. The session brought together cloud architects and developers to explore the latest innovations in silicon, serverless computing, and AI-driven security operations directly from AWS experts.
 
-- **Jignesh Shah** – Director, Open Source Databases
-- **Erica Liu** – Sr. GTM Specialist, AppMod
-- **Fabrianne Effendi** – Assc. Specialist SA, Serverless Amazon Web Services
+## Main Activities
 
-### Key Highlights
+The event focused on the following key technical topics with technical details extracted from specialized AWS deep-dive sessions:
 
-#### Identifying the drawbacks of legacy application architecture
+**Next-Generation Compute & Silicon**  
+Introduction of **AWS Graviton5**, featuring **192 cores per chip** and a **5x larger cache** compared to Graviton4. The new **Amazon EC2 M9g instances** powered by these chips provide up to **25% better price-performance** for general-purpose workloads. For specialized AI tasks, **Trainium3 UltraServers** were unveiled (now available in US East/West), designed to accelerate training for models with trillions of parameters while significantly reducing cost-per-token.
 
-- Long product release cycles → Lost revenue/missed opportunities  
-- Inefficient operations → Reduced productivity, higher costs  
-- Non-compliance with security regulations → Security breaches, loss of reputation  
+**Serverless Evolution**  
+Exploration of **AWS Lambda Managed Instances**, which bridges the gap between serverless simplicity and EC2 flexibility, allowing functions to run on specialized hardware with full VPC control. A major highlight was **AWS Lambda Durable Functions**, which introduces **durable execution** using a checkpoint and replay mechanism. Developers can use the `context.step()` and `context.wait()` primitives to build workflows that **suspend execution for up to one year** without paying for idle compute time. This is ideal for processes awaiting human approvals or long-running AI completions.
 
-#### Transitioning to modern application architecture – Microservices
+**High-Performance Data Infrastructure**  
+Deep dive into **Amazon S3 Vectors** (now Generally Available). It supports up to **1 billion vectors per index** and uses the **HNSW (Hierarchical Navigable Small World)** algorithm for sub-100ms query latency. This native S3 capability reduces total cost of ownership by up to **90%** compared to operating specialized vector databases. Additionally, **Amazon S3 Tables** now supports **cross-region replication** and **Intelligent-Tiering**, which automatically moves data between hot (Express One Zone) and cold (Standard) tiers based on access. S3 Tables also includes built-in maintenance features like **file compaction** and **snapshot expiration** to ensure consistent performance.
 
-Migrating to a modular system — each function is an **independent service** communicating via **events**, built on three core pillars:
+**AI-Powered Security Operations**  
+Preview of the **AWS Security Agent**, which allows teams to scale AppSec expertise using LLMs. It performs **AI-powered design reviews** by analyzing architecture diagrams and **deep code analysis** to identify complex logic flaws beyond the OWASP Top 10. A standout feature is **contextual penetration testing**, where the agent generates and executes exploit scenarios safely within a sandbox to validate vulnerabilities before deployment. **AWS Security Hub** also reached General Availability with near real-time analytics and risk-based prioritization of findings across all AWS accounts.
 
-- **Queue Management**: Handle asynchronous tasks  
-- **Caching Strategy**: Optimize performance  
-- **Message Handling**: Flexible inter-service communication  
+**Global Infrastructure & Secure Networking**  
+Introduction of **AWS AI Factories**, enabling organizations to deploy managed AI infrastructure (specialized hardware and pre-integrated models) in their own data centers to meet data residency requirements. For hybrid connectivity, the **Amazon Route 53 Global Resolver** (preview) was introduced. It uses **secure, anycast-based resolution** for unified DNS management across public and private domains, reducing the need for complex hybrid DNS architectures and manual forwarding rules.
 
-#### Domain-Driven Design (DDD)
+## Outcomes
 
-- **Four-step method**: Identify domain events → arrange timeline → identify actors → define bounded contexts  
-- **Bookstore case study**: Demonstrates real-world DDD application  
-- **Context mapping**: 7 patterns for integrating bounded contexts  
+- **Graviton5 & Trainium3**: Essential for scaling AI workloads efficiently with 192 cores and 25% better performance.
+- **Lambda Durable Functions**: Simplify long-running workflows with native state management and up to 1-year suspension.
+- **S3 Vectors & Tables**: Provide a robust, cost-effective foundation for massive RAG applications with built-in maintenance and 90% cost savings.
+- **AWS Security Agent**: Proactively secures applications via automated pentesting and design reviews throughout the development lifecycle.
+- **Route 53 Global Resolver & AI Factories**: Address complex hybrid and sovereign cloud needs with anycast resolution and on-premises managed AI.
+- Identified **S3 Tables and GuardDuty** features directly applicable to enhancing NutriTrack's data security and operational visibility.
 
-#### Event-Driven Architecture
-
-- **3 integration patterns**: Publish/Subscribe, Point-to-point, Streaming  
-- **Benefits**: Loose coupling, scalability, resilience  
-- **Sync vs async comparison**: Understanding the trade-offs  
-
-#### Compute Evolution
-
-- **Shared Responsibility Model**: EC2 → ECS → Fargate → Lambda  
-- **Serverless benefits**: No server management, auto-scaling, pay-for-value  
-- **Functions vs Containers**: Criteria for appropriate choice  
-
-#### Amazon Q Developer
-
-- **SDLC automation**: From planning to maintenance  
-- **Code transformation**: Java upgrade, .NET modernization  
-- **AWS Transform agents**: VMware, Mainframe, .NET migration  
-
-### Key Takeaways
-
-#### Design Mindset
-
-- **Business-first approach**: Always start from the business domain, not the technology  
-- **Ubiquitous language**: Importance of a shared vocabulary between business and tech teams  
-- **Bounded contexts**: Identifying and managing complexity in large systems  
-
-#### Technical Architecture
-
-- **Event storming technique**: Practical method for modeling business processes  
-- Use **event-driven communication** instead of synchronous calls  
-- **Integration patterns**: When to use sync, async, pub/sub, streaming  
-- **Compute spectrum**: Criteria for choosing between VM, containers, and serverless  
-
-#### Modernization Strategy
-
-- **Phased approach**: No rushing — follow a clear roadmap  
-- **7Rs framework**: Multiple modernization paths depending on the application  
-- **ROI measurement**: Cost reduction + business agility  
-
-### Applying to Work
-
-- **Apply DDD** to current projects: Event storming sessions with business teams  
-- **Refactor microservices**: Use bounded contexts to define service boundaries  
-- **Implement event-driven patterns**: Replace some sync calls with async messaging  
-- **Adopt serverless**: Pilot AWS Lambda for suitable use cases  
-- **Try Amazon Q Developer**: Integrate into the dev workflow to boost productivity  
-
-### Event Experience
-
-Attending the **“GenAI-powered App-DB Modernization”** workshop was extremely valuable, giving me a comprehensive view of modernizing applications and databases using advanced methods and tools. Key experiences included:
-
-#### Learning from highly skilled speakers
-- Experts from AWS and major tech organizations shared **best practices** in modern application design.  
-- Through real-world case studies, I gained a deeper understanding of applying **DDD** and **Event-Driven Architecture** to large projects.  
-
-#### Hands-on technical exposure
-- Participating in **event storming** sessions helped me visualize how to **model business processes** into domain events.  
-- Learned how to **split microservices** and define **bounded contexts** to manage large-system complexity.  
-- Understood trade-offs between **synchronous and asynchronous communication** and integration patterns like **pub/sub, point-to-point, streaming**.  
-
-#### Leveraging modern tools
-- Explored **Amazon Q Developer**, an AI tool for SDLC support from planning to maintenance.  
-- Learned to **automate code transformation** and pilot serverless with **AWS Lambda** to improve productivity.  
-
-#### Networking and discussions
-- The workshop offered opportunities to exchange ideas with experts, peers, and business teams, enhancing the **ubiquitous language** between business and tech.  
-- Real-world examples reinforced the importance of the **business-first approach** rather than focusing solely on technology.  
-
-#### Lessons learned
-- Applying DDD and event-driven patterns reduces **coupling** while improving **scalability** and **resilience**.  
-- Modernization requires a **phased approach** with **ROI measurement**; rushing the process can be risky.  
-- AI tools like Amazon Q Developer can significantly **boost productivity** when integrated into the current workflow.  
-
-#### Some event photos
-*Add your event photos here*  
-
-> Overall, the event not only provided technical knowledge but also helped me reshape my thinking about application design, system modernization, and cross-team collaboration.
+![1769703855906.jpg](/images/1769703855906.jpg)
+![1769703854680.jpg](/images/1769703854680.jpg)

@@ -3,7 +3,7 @@
     "private": true,
     "version": "1.0.0",
     "type": "module",
-    "homepage": "https://[username].github.io/quanchu-aws-report/",
+    "homepage": "https://caquan04.github.io/QuanChu-AWS-intership-report/",
     "scripts": {
         "dev": "vite",
         "build": "tsc -b && vite build",

@@ -6,7 +6,6 @@ import {
     Wrench,
     ClipboardCheck,
     MessageSquare,
-    BookOpen,
     LucideIcon
 } from 'lucide-react';
 
@@ -56,17 +55,6 @@ export const navigationStructure: NavItem[] = [
         labelEn: 'Events',
         labelVi: 'Sự kiện',
         icon: Calendar,
-    },
-    {
-        path: '/blogs',
-        labelEn: 'Translated Blogs',
-        labelVi: 'Bài Blog Dịch',
-        icon: BookOpen,
-        children: [
-            { path: '/blogs/blog-1', labelEn: 'Blog 1', labelVi: 'Blog 1', icon: BookOpen },
-            { path: '/blogs/blog-2', labelEn: 'Blog 2', labelVi: 'Blog 2', icon: BookOpen },
-            { path: '/blogs/blog-3', labelEn: 'Blog 3', labelVi: 'Blog 3', icon: BookOpen },
-        ],
     },
     {
         path: '/workshop',

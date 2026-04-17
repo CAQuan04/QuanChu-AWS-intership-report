@@ -187,38 +187,32 @@ Please change the parent <Route path="${A}"> to <Route path="${A==="/"?"*":`${A}
 `,yN=`# Bài blog 3\r
 \r
 \r
-`,bN=`# Blogs Translated\r
-\r
-\r
-This section will list and introduce the blogs you have translated. For example:\r
-\r
-###  [Blog 1 - Getting started with healthcare data lakes: Using microservices](3.1-Blog1/)\r
-\r
-###  [Blog 2 - ...](3.2-Blog2/)\r
-\r
-###  [Blog 3 - ...](3.3-Blog3/)\r
-\r
-###  [Blog 4 - ...](3.4-Blog4/)\r
-\r
-###  [Blog 5 - ...](3.5-Blog5/)\r
-\r
-###  [Blog 6 - ...](3.6-Blog6/)\r
-`,TN=`# Các bài blog đã dịch\r
-\r
-\r
-Tại đây sẽ là phần liệt kê, giới thiệu các blogs mà các bạn đã dịch. Ví dụ:\r
-\r
-###  [Blog 1 - Getting started with healthcare data lakes: Using microservices](3.1-Blog1/)\r
-\r
-###  [Blog 2 - ...](3.2-Blog2/)\r
-\r
-###  [Blog 3 - ...](3.3-Blog3/)\r
-\r
-###  [Blog 4 - ...](3.4-Blog4/)\r
-\r
-###  [Blog 5 - ...](3.5-Blog5/)\r
-\r
-###  [Blog 6 - ...](3.6-Blog6/)\r
+`,bN=`---
+title: "Blogs Translated"
+date: 2026-01-09T15:02:34+07:00
+weight: 3
+chapter: false
+pre: " <b> 3. </b> "
+---
+
+This section will list and introduce the blogs translated.
+
+### Blog 1 - Getting started with healthcare data lakes: Using microservices
+### Blog 2 - Best practices for deploying AWS WAF
+### Blog 3 - Serverless architecture for real-time analytics
+`,TN=`---
+title: "Blogs Translated"
+date: 2026-01-09T15:02:34+07:00
+weight: 3
+chapter: false
+pre: " <b> 3. </b> "
+---
+
+Tại đây sẽ là phần liệt kê, giới thiệu các blogs đã được biên dịch.
+
+### Blog 1 - Bắt đầu với hồ sơ dữ liệu y tế: Sử dụng vi dịch vụ
+### Blog 2 - Thực hành tốt nhất khi triển khai AWS WAF
+### Blog 3 - Kiến trúc Serverless cho phân tích thời gian thực
 `,EN=`# Self-Assessment\r
 \r
 \r

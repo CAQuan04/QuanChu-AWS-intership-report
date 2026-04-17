@@ -67,14 +67,24 @@ export const MarkdownRenderer = ({ content }: MarkdownRendererProps) => {
                         <table className="content-table">{children}</table>
                     </div>
                 ),
-                img: ({ src, alt }) => (
-                    <img
-                        src={src}
-                        alt={alt}
-                        className="content-image w-full object-cover max-h-[500px]"
-                        loading="lazy"
-                    />
-                ),
+                img: ({ src, alt }) => {
+                    // Fix absolute path images for GitHub Pages subfolder deployment
+                    let fixedSrc = src;
+                    if (src && src.startsWith('/images/')) {
+                        const baseUrl = import.meta.env.BASE_URL;
+                        // baseUrl already ends with '/' if configured correctly, but we ensure no double slash
+                        fixedSrc = `${baseUrl.replace(/\/$/, '')}${src}`;
+                    }
+                    
+                    return (
+                        <img
+                            src={fixedSrc}
+                            alt={alt}
+                            className="content-image w-full object-cover max-h-[500px]"
+                            loading="lazy"
+                        />
+                    );
+                },
                 a: ({ href, children }) => (
                     <a
                         href={href}

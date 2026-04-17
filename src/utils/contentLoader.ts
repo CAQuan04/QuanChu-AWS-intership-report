@@ -1,7 +1,7 @@
 // Content loader utility for loading Markdown files
 // Markdown files are stored in /content/ folder with language suffix (e.g., home.en.md, home.vi.md)
 
-const contentModules = import.meta.glob('/content/**/*.md', { as: 'raw', eager: true });
+const contentModules = import.meta.glob('/content/**/*.md', { query: '?raw', import: 'default', eager: true });
 
 export function loadContent(path: string, language: 'en' | 'vi'): string {
     // Try language-specific file first

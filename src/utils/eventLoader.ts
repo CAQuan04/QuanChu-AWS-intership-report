@@ -10,7 +10,7 @@ export interface EventData {
 }
 
 // Eagerly load all event markdown files
-const eventModules = import.meta.glob('/content/events/*.md', { as: 'raw', eager: true });
+const eventModules = import.meta.glob('/content/events/*.md', { query: '?raw', import: 'default', eager: true });
 
 export function loadEvents(language: 'en' | 'vi'): EventData[] {
     const events: EventData[] = [];

@@ -19,6 +19,7 @@ import {
 } from './pages/WorkshopPages';
 import { EvaluationPage } from './pages/EvaluationPage';
 import { FeedbackPage } from './pages/FeedbackPage';
+import { BlogsPage, Blog1Page, Blog2Page, Blog3Page } from './pages/BlogsPage';
 
 function AppContent() {
     const location = useLocation();
@@ -57,6 +58,12 @@ function AppContent() {
                 {/* Evaluation & Feedback */}
                 <Route path="/evaluation" element={<EvaluationPage />} />
                 <Route path="/feedback" element={<FeedbackPage />} />
+                
+                {/* Blogs */}
+                <Route path="/blogs" element={<BlogsPage />} />
+                <Route path="/blogs/blog-1" element={<Blog1Page />} />
+                <Route path="/blogs/blog-2" element={<Blog2Page />} />
+                <Route path="/blogs/blog-3" element={<Blog3Page />} />
             </Routes>
         </AnimatePresence>
     );
